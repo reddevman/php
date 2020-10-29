@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="style.css">
+    <title>Conversor RGB-HEX</title>
+</head>
+<body>
+    <h1>Conversor RGB-Hexadecimal</h1>
+    <h2>Convertir de RGB a HEX</h2>
+    <form action="conversión_rgb_hex.php" method="post">
+        <label for="red">R (rojo):</label><br>
+        <!-- Usar min y max en el input para establecer el límite de valores -->
+        <input type="text" name="red" placeholder="255"><br>
+
+        <label for="green">G (verde):</label><br>
+        <input type="text" name="green" placeholder="255"><br>
+
+        <label for="blue">B (blue):</label><br>
+        <input type="text" name="blue" placeholder="255"><br>
+
+        <input type="submit" value="Submit">
+        <input type="reset" value="Limpiar">
+        
+    </form>
+    <br>
+    <h2>Convertir de HEX a RGB</h2>
+    <form action="conversión_hex_rgb.php" method="post">
+        <label for="hexa">Hexadecimal:</label><br>
+        <!-- Uso de pattern para limitar en el input lo que se debe introducir -->
+        <input type="text" pattern="#[a-fA-F0-9]{6}" name="hexa" placeholder="#000000"><br>
+
+        <input type="submit" value="Submit">
+        <input type="reset" value="Limpiar">
+    </form>
+</body>
+</html>

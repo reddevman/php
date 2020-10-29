@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="style.css">
+    <title>Formulario Notas de alumnos</title>
+</head>
+
+<body>
+    <div class="form-group container">
+        <h1 class="h1 text-primary">Formulario de alumnos</h1>
+        <h2>Inserta los datos que se piden a continuación:</h2>
+        <form action="datos.php" method="post">
+            <label for="nombre">Nombre:</label>
+            <input type="text" class="form-control mb-2" name="nombre" placeholder="Nombre">
+
+            <label for="apellidos">Apellidos:</label>
+            <input type="text" class="form-control mb-2" name="apellidos" placeholder="Apellidos">
+
+            <label for="curso">Curso:</label>
+            <select name="curso" class="form-control mb-2">
+                <option value="1º">1º</option>
+                <option value="2º">2º</option>
+            </select>
+
+            <label for="ciclo">Ciclo:</label>
+            <select name="ciclo" class="form-control mb-2">
+                <option value="DAW">DAW</option>
+                <option value="DAM">DAM</option>
+            </select>
+
+            <label for="notaprog">Calificación Programación:</label>
+            <input type="number" name="notaprog" min="0" max="10" step=".5" class="form-control mb-2" title="Introduzca valores del 1 al 10">
+
+            <label for="notaentornos">Entornos de Desarrollo:</label>
+            <input type="number" name="notaentornos" min="0" max="10" step=".5" class="form-control mb-2" title="Introduzca valores del 1 al 10">
+
+            <label for="notalenguajes">Lenguaje de Marcas:</label>
+            <input type="number" name="notalenguajes" min="0" max="10" step=".5" class="form-control mb-2" title="Introduzca valores del 1 al 10">
+
+            <label for="notabbdd">Bases de Datos</label>
+            <input type="number" name="notabbdd" min="0" max="10" step=".5" class="form-control mb-2" title="Introduzca valores del 1 al 10">
+
+            <input type="submit" class="rounded" value="Submit">
+            <input type="reset" class="rounded" value="Limpiar">
+        </form>
+    </div>
+</body>
+
+</html>

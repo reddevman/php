@@ -1,0 +1,7 @@
+    - Hacer un programa que sume dos variables que almacenan dos números distintos.
+    - Programa que muestre en pantalla información de PHP con la función phpinfo(). Muestre
+la información centrada horizontalmente.
+    - Mostrar en pantalla una tabla de 10 por 10 con los números del 1 al 100. Colorear las
+filas alternando gris y blanco. Además el tamaño sera una constante (TAM,10).
+    - Crear un select en HTML que tenga los números del 1 al 10 como opciones. El número de valores
+del select(10) estará definido en una constante.
