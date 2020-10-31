@@ -16,7 +16,14 @@
         <?php
         require 'conversion.php';
 
-        # if (isset($_POST["X"]) && !empty($_POST["X"])){}
+        /*
+          Dentro de cada if está la conversión para cada tipo de moneda.
+          Para cada caso se hace un objeto nuevo de Conversion, luego se llama a setX para
+          establecer en la propiedad del objeto la moneda que el usuario quiere convertir según
+          el caso, con el método global $_POST[].
+          A continuación en el echo se llama al método que convierte la moneda.
+        */
+
         # EUROS A LIBRAS
         if (isset($_POST["eurosL"]) && !empty($_POST["eurosL"])) {
             $eurosLibras = new Conversion();
