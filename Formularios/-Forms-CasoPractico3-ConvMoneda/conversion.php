@@ -60,28 +60,28 @@ class Conversion
     }
 
 
-    public function convEurosLibras($euros)
+    public function convEurosLibras()
     {
         $conversion = 0.9;
-        $conversion *= $euros;
+        $conversion *= $this->euros;
         return $conversion;
     }
-    public function convLibrasEuros($libras)
+    public function convLibrasEuros()
     {
         $conversion = 1.11;
-        $conversion *= $libras;
+        $conversion *= $this->libras;
         return $conversion;
     }
-    public function convEurosDolares($euros)
+    public function convEurosDolares()
     {
         $conversion = 1.17;
-        $conversion *= $euros;
+        $conversion *= $this->euros;
         return $conversion;
     }
-    public function convDolaresEuros($dolares)
+    public function convDolaresEuros()
     {
         $conversion = 0.86;
-        $conversion *= $dolares;
+        $conversion *= $this->dolares;
         return $conversion;
     }
 }

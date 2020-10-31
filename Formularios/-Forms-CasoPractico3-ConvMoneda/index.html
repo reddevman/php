@@ -12,32 +12,33 @@
 </head>
 
 <body>
-    <div class="form-group container">
-        <h1>Conversor de monedas</h1>
+    <div class="form-group container mt-5 cajaform">
+        <h1 class="text-info">Conversor de monedas</h1>
         <form action="envioformulario.php" method="post">
-            <label for="euros-libras">Introduce la cantidad en <b>Euros</b> para convertir a -> <b>Libras</b>:</label>
-            <input type="number" min="1" name="euros" class="form-control mb-2">
+            <fieldset class="form-group">
+                <legend>Elige qué quieres convertir</legend>
+                <!-- EUROS A LIBRAS -->
+                <label for="euros-libras">Introduce la cantidad en <b>Euros</b> para convertir a -> <b>Libras</b>:</label>
+                <input type="number" min="1" name="eurosL" class="form-control mb-2">
+                <input type="submit" class="rounded" value="Convertir">
 
-            <input type="submit" class="rounded" value="Convertir">
-            <input type="reset" class="rounded mb-3" value="Limpiar">
+                <!-- LIBRAS A EUROS -->
+                <label for="libras-euros">Introduce la cantidad en <b>Libras</b> para convertir a -> <b>Euros</b>:</label>
+                <input type="number" min="1" name="libras" class="form-control mb-2">
+                <input type="submit" class="rounded" value="Convertir">
 
-            <label for="euros-libras">Introduce la cantidad en <b>Libras</b> para convertir a -> <b>Euros</b>:</label>
-            <input type="number" min="1" name="euros" class="form-control mb-2">
+                <!-- EUROS A DÓLARES -->
+                <label for="euros-dolares">Introduce la cantidad en <b>Euros</b> para convertir a -> <b>Dólares</b>:</label>
+                <input type="number" min="1" name="eurosD" class="form-control mb-2">
+                <input type="submit" class="rounded" value="Convertir">
 
-            <input type="submit" class="rounded" value="Convertir">
-            <input type="reset" class="rounded mb-3" value="Limpiar">
-
-            <label for="euros-libras">Introduce la cantidad en <b>Euros</b> para convertir a -> <b>Dólares</b>:</label>
-            <input type="number" min="1" name="euros" class="form-control mb-2">
-
-            <input type="submit" class="rounded" value="Convertir">
-            <input type="reset" class="rounded mb-3" value="Limpiar">
-
-            <label for="euros-libras">Introduce la cantidad en <b>Dólares</b> para convertir a -> <b>Euros</b>:</label>
-            <input type="number" min="1" name="euros" class="form-control mb-2">
-
-            <input type="submit" class="rounded" value="Convertir">
-            <input type="reset" class="rounded" value="Limpiar">
+                <!-- DÓLARES A EUROS -->
+                <label for="dolares-euros">Introduce la cantidad en <b>Dólares</b> para convertir a -> <b>Euros</b>:</label>
+                <input type="number" min="1" name="dolares" class="form-control mb-2">
+                <input type="submit" class="rounded" value="Convertir">
+                <br>
+                <input type="reset" class="rounded mt-5" value="Limpiar">
+            </fieldset>
         </form>
     </div>
 </body>

@@ -6,3 +6,9 @@ body {
     margin-top: 50px;
     text-align: center;
 }
+
+.cajaform {
+    border: 5px solid #FFC107;
+    border-radius: 40px;
+    box-shadow: 10px 5px 5px #6C757D;
+}
