@@ -64,7 +64,7 @@
         }
 
         /**
-         * USO DEL TRAIT CON LA INFO GENERAL USADAS EN LAS DOS CLASES
+         * LLAMADA DEL TRAIT CON LA INFO GENERAL USADAS EN LAS DOS CLASES
          */
         use mensajeDatos;
 
