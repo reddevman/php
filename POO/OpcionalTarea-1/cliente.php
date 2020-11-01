@@ -3,13 +3,13 @@
         {
                 private $dni;
                 private $nombre;
-                private $apelidos;
+                private $apellidos;
 
                 function __construct($dni,$nombre,$apellidos)
                 {
                         $this->dni = $dni;
                         $this->nombre = $nombre;
-                        $this->apelidos = $apellidos;
+                        $this->apellidos = $apellidos;
                 }
 
                 /**
@@ -37,9 +37,9 @@
                 /**
                  * Get the value of apelidos
                  */
-                public function getApelidos()
+                public function getApellidos()
                 {
-                        return $this->apelidos;
+                        return $this->apellidos;
                 }
 
                 /**
@@ -47,9 +47,9 @@
                  *
                  * @return  self
                  */
-                public function setApelidos($apelidos)
+                public function setApellidos($apellidos)
                 {
-                        $this->apelidos = $apelidos;
+                        $this->apellidos = $apellidos;
                 }
 
                 /**

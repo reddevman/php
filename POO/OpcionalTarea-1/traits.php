@@ -6,10 +6,9 @@
     trait mensajeDatos 
     {
         public function datosCliente($dni){
-            $dni = $this->dni;
-            echo 'Los nombres y apellidos del cliente con dni: ' . $dni . ', son:<br>';
-            echo $this->getNombre() . '<br>';
-            echo $this->getApelidos() . '<br>';
+            $this->dni = $dni;
+            echo 'Los nombres y apellidos del cliente asegurado, con dni ' . $dni . ', son:<br>';
+            echo $this->getNombre() . ' '  .$this->getApellidos() . '.<br><br>';
         }
 
         public function totalSinIVA(){

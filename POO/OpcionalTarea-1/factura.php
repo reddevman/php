@@ -1,9 +1,24 @@
 <?php
-    require 'traits.php';
+        /**
+         * require_once para que no salte error de que traits.php se usa más de una vez:
+         * indemnizacion.php y factura.php
+         */
+    require_once 'traits.php';
     class Factura extends Cliente
     {
         private $importeFactura;
         private $numFactura;
+
+        /**
+         * Constructor que va a heredar de la super clase sus propiedades.
+         * Se hace uso de parent::__construct() para poder heredar dichos atributos.
+         */
+        function __construct($dni,$nombre,$apellidos,$numFactura,$importeFactura)
+        {
+                parent::__construct($dni,$nombre,$apellidos);
+                $this->numFactura = $numFactura;
+                $this->importeFactura = $importeFactura;
+        }
 
         /**
          * GETTERS SETTERS

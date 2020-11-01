@@ -1,5 +1,5 @@
 <?php
-    require 'traits.php';
+    require_once 'traits.php';
     class Indemnizacion extends Cliente
     {
         private $importeFactura;
@@ -7,11 +7,12 @@
         private $nombreIndem;
         private $apellidosIndem;
 
-        function __construct($dni,$nombre,$apellidos)
+        function __construct($dni,$nombre,$apellidos,$importeFactura)
         {
             $this->dniIndem = $dni;
             $this->nombreIndem = $nombre;
             $this->apellidosIndem = $apellidos;
+            $this->importeFactura = $importeFactura;
         }
 
         /**
@@ -102,7 +103,6 @@
         {
             echo 'Los datos de la persona a indemnizar son:<br>';
             echo $this->dniIndem . '<br>';
-            echo $this->nombreIndem . '<br>';
-            echo $this->apellidosIndem . '<br>';
+            echo $this->nombreIndem . ' ' . $this->apellidosIndem . '.';
         }
     }
