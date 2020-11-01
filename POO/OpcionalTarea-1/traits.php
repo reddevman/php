@@ -6,8 +6,8 @@
     trait mensajeDatos 
     {
         public function datosCliente($dni){
-            $this->dni = $dni;
-            echo 'Los nombres y apellidos del cliente con dni: ' . $this->dni . ', son:<br>';
+            $dni = $this->dni;
+            echo 'Los nombres y apellidos del cliente con dni: ' . $dni . ', son:<br>';
             echo $this->getNombre() . '<br>';
             echo $this->getApelidos() . '<br>';
         }
