@@ -4,6 +4,12 @@
         private $numero_puertas;
 
         /**
+         * No se ha realizado un constructor para cada clase heredando el de vehiculo porque
+         * no se pide en el ejercicio, sino se haría uso de la super clase mediante 
+         * parent::__construct()
+         */
+
+        /**
          * GETTER SETTERS *
          */
 
