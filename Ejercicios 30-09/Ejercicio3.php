@@ -6,15 +6,15 @@ define('TAM', 10);
 echo '<table width=10% cellspacing=0>';
 $n = 1;
 // FILA
-for ($i=1; $i <=TAM ; $i++) {
+for ($i = 1; $i <= TAM; $i++) {
     if ($i % 2 == 0)
-    echo '<tr bgcolor=#bdc3d6>';
-    else 
-    echo '<tr>';
+        echo '<tr bgcolor=#bdc3d6>';
+    else
+        echo '<tr>';
     // COLUMNA
-    for ($j=1; $j <=TAM ; $j++) {
+    for ($j = 1; $j <= TAM; $j++) {
         echo '<td>' . $n . '</td>';
-        $n+=1; // O $n++
+        $n += 1; // O $n++
     }
 }
 echo '</tr>';
