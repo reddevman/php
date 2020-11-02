@@ -23,7 +23,7 @@
         {
             // $this->jugadores = $numJugador;
 
-            // * Comprobar en cada posición del array si el jugador que se está buscando y se ha pasado el dorsal como parámetro 
+            // * Comprobar en cada posición del array si existe el jugador que se está buscando y se ha pasado el dorsal como parámetro 
             for ($i=0; $i < count($this->jugadores); $i++) { 
                 if ($this->jugadores[$i]->getNumJug() == $numJugador) {
                     return $this->jugadores[$i];
