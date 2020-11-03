@@ -35,6 +35,8 @@
         # Mostrar cuántos filas (registros) hay en la tabla
         echo 'Hay ' . $resultado->num_rows . ' jugadores en el registro<br><br>';
 
+        # Se puede hacer con WHILE: while($resultado=mysqli_fetch_assoc($datos))...
+        # $datos=mysqli_query($conexion,"SELECT * FROM jugador");
         for ($i=0; $i < $resultado->num_rows; $i++) {
 
             # Obtenemos un array asociativo a partir de lo obtenido de la tabla

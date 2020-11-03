@@ -29,6 +29,8 @@
 
         $resultado = $conMysql->query("SELECT * FROM pais");
 
+        # Se puede hacer con WHILE: while($resultado=mysqli_fetch_assoc($datos))...
+        # $datos=mysqli_query($conexion,"SELECT * FROM jugador");
         for ($i = 0; $i < $resultado->num_rows; $i++) {
             $fila = $resultado->fetch_assoc();
             echo '<tr>';
