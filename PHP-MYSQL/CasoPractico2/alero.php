@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-    <title>Pivots NBA</title>
+    <title>Ala Pivots NBA</title>
     <style>
         body {
             font-family: 'Open Sans', sans-serif;
@@ -35,9 +35,9 @@
         if ($conMysql->connect_errno) {
             echo "Fallo en la conexión: " . $conMysql->connect_errno . " " . $conMysql->connect_error;
         } else echo "<h1 class='text-success'>Conexión realizada</h1><hr>";
-        echo "<h4>Los pivots de la tabla NBA son los siguientes:</h4>";
+        echo "<h4>Los aleros de la tabla NBA son los siguientes:</h4>";
 
-        $resultado = $conMysql->query("SELECT Posicion,Nombre,Nombre_equipo FROM jugadores WHERE Posicion='C' ORDER BY Nombre");
+        $resultado = $conMysql->query("SELECT Posicion,Nombre,Nombre_equipo FROM jugadores WHERE Posicion='F' ORDER BY Nombre");
 
         for ($i = 0; $i < $resultado->num_rows; $i++) {
             $fila = $resultado->fetch_assoc();
