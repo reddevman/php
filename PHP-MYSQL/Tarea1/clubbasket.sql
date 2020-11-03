@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 03-11-2020 a las 12:48:07
+-- Tiempo de generación: 03-11-2020 a las 13:18:50
 -- Versión del servidor: 10.4.14-MariaDB
 -- Versión de PHP: 7.4.10
 
@@ -20,6 +20,8 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `clubbasket`
 --
+CREATE DATABASE IF NOT EXISTS `clubbasket` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `clubbasket`;
 
 -- --------------------------------------------------------
 
