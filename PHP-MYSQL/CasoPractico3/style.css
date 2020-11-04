@@ -1,0 +1,19 @@
+header {
+    background: #cccccc;
+    width: 100%;
+    height: 100px;
+
+}
+
+header p {
+    display: block;
+    float: left;
+}
+
+header nav {
+    float: right;
+}
+
+ul {
+    list-style: none;
+}
