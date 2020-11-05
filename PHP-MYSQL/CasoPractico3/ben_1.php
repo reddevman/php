@@ -42,6 +42,8 @@
         $resultadoG1 = $conMysql->query("SELECT ROUND(SUM(gasto),2) as TotalGastos1 from gastos where num_semana='1'");
         $resultadoTotalG1 = $resultadoG1->fetch_assoc();
 
+        # Como no hace falta recorrer el array, basta con indicarle la posición del mismo con la que queremos trabajar
+        # Al ser un array asociativo se relaciona la CLAVE con la variable que corresponga en SQL
         $beneficios1 = $resultadoTotalV1['TotalVentas1'] - $resultadoTotalG1['TotalGastos1'];
 
         echo "<h1>Los beneficios de la SEMANA 1 son:</h1>";
