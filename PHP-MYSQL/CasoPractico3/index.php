@@ -18,14 +18,14 @@
         </div>
         <nav>
             <ul>
-                <li><a href="total.php">Total de ventas</a></li>
-                <li><a href="ben_1.php">Beneficios semana 1</a></li>
                 <li><a href="ben_2.php">Beneficios semana 2</a></li>
+                <li><a href="ben_1.php">Beneficios semana 1</a></li>
+                <li><a href="total.php">Total de ventas</a></li>
             </ul>
         </nav>
     </header>
     <main>
-
+        <h1>Pinchar en una opción de la barra de naegación para obtener el resultado de la base de datos.</h1>
     </main>
 </body>
 

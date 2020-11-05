@@ -36,30 +36,17 @@
         $resultadoV1 = $conMysql->query("SELECT ROUND(SUM(venta),2) as TotalVentas1 from ventas where num_semana='1'");
         # Asignar a una variable un array de la consulta obtenida ya que query devuelve un resultado, ningún de string
         $resultadoTotalV1 = $resultadoV1->fetch_assoc();
-            // SEMANA 2
-        $resultadoV2 = $conMysql->query("SELECT ROUND(SUM(venta),2) as TotalVentas2 from ventas where num_semana='2'");
-        $resultadoTotalV2 = $resultadoV2->fetch_assoc();
 
         // GASTOS
             // SEMANA 1
         $resultadoG1 = $conMysql->query("SELECT ROUND(SUM(gasto),2) as TotalGastos1 from gastos where num_semana='1'");
         $resultadoTotalG1 = $resultadoG1->fetch_assoc();
-            // SEMANA 2
-        $resultadoG2 = $conMysql->query("SELECT ROUND(SUM(gasto),2) as TotalGastos2 from gastos where num_semana='2'");
-        $resultadoTotalG2 = $resultadoG2->fetch_assoc();
 
+        $beneficios1 = $resultadoTotalV1['TotalVentas1'] - $resultadoTotalG1['TotalGastos1'];
 
-        echo "<h1>Los resultados de los totales de ventas por semana (1 y 2) son los siguientes:</h1>";
-        echo "<h2>SEMANA 1</h2>";
-        echo "<table><tr><th>VENTAS</th><th>GASTOS</th>";
-        # Usamos como clave del array asociativo el alias que indicamos en el query de la consulta
-        echo "<tr><td>" . $resultadoTotalV1['TotalVentas1'] . " euros</td><td>" . $resultadoTotalG1['TotalGastos1'] . " euros</td></tr></table>";
+        echo "<h1>Los beneficios de la SEMANA 1 son:</h1>";
+        echo "<h2>" . $beneficios1 . " euros</h2>";
 
-        echo "<h2>SEMANA 2</h2>";
-        echo "<table><tr><th>VENTAS</th><th>GASTOS</th>";
-        # Usamos como clave del array asociativo el alias que indicamos en el query de la consulta
-        echo "<tr><td>" . $resultadoTotalV2['TotalVentas2'] . " euros</td><td>" . $resultadoTotalG2['TotalGastos2'] . " euros</td></tr></table>";
-        
     ?>
     </main>
 </body>
