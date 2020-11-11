@@ -6,7 +6,7 @@
     <title>Base de datos Alumnos</title>
 </head>
 <body>
-    <form action="lib/escuela.php" method="post">
+    <form action="alumnoNuevo.php" method="post">
     <fieldset>
         <legend>Insertar un alumno</legend>
         <label for="nombre">Nombre:</label><br>
@@ -14,7 +14,8 @@
         <label for="nombre">Apellidos:</label><br>
         <input type="text" name="apellidos"><br>
         <label for="nombre">edad:</label><br>
-        <input type="text" name="edad">
+        <input type="text" name="edad"><br><br>
+        <input type="submit" value="Enviar">
     </fieldset>
     </form>
 </body>

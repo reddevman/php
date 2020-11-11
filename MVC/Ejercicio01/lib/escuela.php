@@ -4,7 +4,7 @@
         # Creación de variables para cada parámetro de la conexión SQL
         private $host = "localhost";
         private $user = "root";
-        private $pass = "";
+        private $pass = "112812";
         private $db_name = "escuela";
 
         # Propiedad mysqli que tendrá la conexión a la base de datos
@@ -35,9 +35,11 @@
         public function insertarAlumno($nombre, $apellidos, $edad)
         {
             # Se crea la variable que contiene la sentencia de inserción de un alumno
-            $insertarSql = "INSERT INTO alumnos (nombre,apellidos,edad) VALUES ('" . $nombre . "', '" . $apellidos . "',
+            $insertarSql = "INSERT INTO alumnos (id,nombre,apellidos,edad) VALUES (NULL, '" . $nombre . "', '" . $apellidos . "',
             " . $edad . ")";
+            
             # Asignamos al query la consulta de la conexión que realicemos la variable que contiene la sentencia de sql
+            # Imprescindible para que almacene los datos
             $this->conn->query($insertarSql);
         }
     }
