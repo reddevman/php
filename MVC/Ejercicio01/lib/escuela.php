@@ -47,7 +47,7 @@
             }
         }
 
-/*         # Función que devuelve la consulta a una variable para usar en otro archivo php
+        /* # Función que devuelve la consulta a una variable para usar en otro archivo php
         public function devolverAlumnos()
         {
             if ($this->error == false) {
