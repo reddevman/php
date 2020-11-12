@@ -1,5 +1,8 @@
 <?php
-    include 'lib/escuela.php';
+    include 'lib/alumnos.php';
+
+/*  
+    SIN HACER USO DE MVC CON CRUD
 
     $listado1 = new Escuela();
     $resultado = $listado1->devolverAlumnos();
@@ -13,4 +16,12 @@
             echo "<hr>";
         }
     }
+ */
+    $listado = new Alumnos();
+    $miArrayResultados = $listado->devolverAlumnos();
+
+    foreach ($miArrayResultados as $datos) {
+        echo $datos['nombre'] . " " . $datos['apellidos'] . ", " . $datos['edad'] . " años<br>";
+    }
+    
 ?>
