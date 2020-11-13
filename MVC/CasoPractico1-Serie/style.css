@@ -1,0 +1,80 @@
+body {
+    background: #EBEFD0;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+main {
+    width: 70%;
+    margin: auto;
+    border: 5px solid #49BEB7;
+    background: #b0e9e2;
+    padding: 50px;
+    box-shadow: 10px 10px rgba(8, 95, 99, 0.7);
+}
+
+header h1 {
+    text-align: center;
+    font-size: 70px;
+    text-shadow: 2px 2px rgba(68, 68, 68, 0.7);
+}
+
+#wrap-buttons {
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 100px;
+}
+
+#form-actores input[type="submit"] {
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 5px 5px black;
+}
+
+#form-actores-temporada input[type="submit"] {
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 5px 5px black;
+}
+
+#wrap-titles {
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 100px;
+    border: 1px solid black;
+}
+
+table {
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+table tr th {
+    text-align: center;
+    border: 1px solid black;
+    padding: 10px;
+    background: rgb(211, 211, 211);
+}
+
+table tr td {
+    padding: 10px;
+    border: 1px solid black;
+}
+
+table.actores {
+    width: 50%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+table.actores tr th{
+    text-align: center;
+}
+
+table.actores tr:nth-child(even){
+    background: #c1fff8;
+}
