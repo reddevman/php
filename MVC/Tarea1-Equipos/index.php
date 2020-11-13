@@ -43,7 +43,7 @@
                     foreach ($listadoEquipos as $equipos) {
                         # $nombreEquipo es una variable creada para construir el <option>
                         $nombreEquipo = $equipos['Nombre'];
-                        echo "<option value=\". $nombreEquipo .\">" .$nombreEquipo . "</option>";
+                        echo "<option value=\".$nombreEquipo.\">" . $nombreEquipo . "</option>";
                     }
                     echo "</select>";
                 } else {
@@ -57,7 +57,7 @@
 
         <fieldset style="width:48%; float:right">
             <legend>Mostrar <b>DATOS</b> de un Equipo</legend>
-            <form action="litsa.php" method="post">
+            <form action="lista.php" method="post">
 
                 <?php
                 if ($datosEquipos != null) {
@@ -66,7 +66,7 @@
 
                     foreach ($datosEquipos as $equipos2) {
                         $nombreEquipo = $equipos2['Nombre'];
-                        echo "<option value=\" . $nombreEquipo . \">" . $nombreEquipo . "</option>";
+                        echo "<option value=\".$nombreEquipo.\">" . $nombreEquipo . "</option>";
                     }
                     echo "</select>";
                 } else {
