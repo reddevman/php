@@ -114,7 +114,7 @@ class Nba extends BBDD
 
         if ($arrayTemporadas != null) {
 
-            # 3º - Se recorre el array de las temporadas para obtener la información
+            # 3º - Se recorre el array de las temporadas para obtener la información y almacenarla en otro ARRAY
             for ($i=0; $i < count($arrayTemporadas); $i++) { 
 
                 # 4º -  Consulta SQL que necesitamos para recoger los datos
@@ -171,4 +171,3 @@ class Nba extends BBDD
         }
     }
 }
-?>

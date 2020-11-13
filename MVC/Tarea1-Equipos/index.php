@@ -92,6 +92,8 @@
             echo "<table border=1>";
             echo "<tr><th>Puntuación</th><th>Nombre</th><th>Equipo</th><th>Temporadas</th>";
             for ($i = 0; $i < count($maximosAnotadores); $i++) {
+                
+                # Hay que introducir el array asociativo en un array normal para poder llamar a las posiciones y poder mostrarlas como String
                 $anotador = $maximosAnotadores[$i];
                 echo "<tr><td>" . $anotador[0] . "</td><td>" . $anotador[1] .
                     "</td><td>" . $anotador[2] . "</td><td>" . $anotador[3] . "</td></tr>";

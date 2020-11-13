@@ -12,7 +12,7 @@
         // Variable de la conexión //
         private $conexion;
 
-        // Propiedad para controlar posibles errores //
+        // Propiedades para controlar posibles errores //
         private $error = false; private $error_msj = "";
 
         function __construct()
@@ -46,9 +46,10 @@
 
 
         // Función encargada de hacer la consulta a la base de datos, pasada por parámetro //
+        # La consulta se hará en otra clase
         function realizarConsulta($consulta)
         {
-            # Si la funcion hayError() no nos devuelve ningún TRUE, es decir, si es FALSE
+            # Si la funcion hayError() no nos devuelve ningún TRUE, es decir, si es FALSE...
 
             /* Recordar que lo que hay dentro de un if es true, y para comprobar que sea false
             se indica la exclamación delante de la variable o función. También se podría hacer
@@ -68,4 +69,3 @@
             }
         }
     }
-?>
