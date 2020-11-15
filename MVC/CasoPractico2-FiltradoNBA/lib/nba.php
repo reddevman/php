@@ -61,7 +61,7 @@
                     AND equipo_visitante='".$equipoVisitante."' AND temporada='".$temporada."' ";
             $resultado = $this->realizarConsulta($sql);
             /**
-             * Si quisieramos que devolviera sólo con con return $resultado y prescindir del array
+             * Si quisieramos que devolviera sólo con return $resultado y prescindir del array,
              * omitiriamos el código de abajo
              */
             if ($resultado != null) {
