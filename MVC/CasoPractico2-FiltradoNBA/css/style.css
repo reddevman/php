@@ -25,3 +25,26 @@ input[type=submit]:hover {
     color: white;
     border: 2px solid #EC164A;
 }
+
+table {
+    width: 70%;
+    margin: 0 auto;
+    border-collapse: collapse;
+    border: 1px solid black;
+    table-layout: fixed;
+}
+
+table tr:nth-child(odd) {
+    border: 1px solid black;
+    background: rgb(236, 236, 236);
+    
+}
+
+table tr th {
+    border: 1px solid black;
+    background: #ccc;
+}
+
+table tr td:nth-child(even) {
+    border: 1px solid black;
+}
