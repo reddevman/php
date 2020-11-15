@@ -7,9 +7,25 @@
             parent::__construct();
         }
 
-        function listaEquipos()
+        function listaEquiposLocales()
         {
-            $sql = "SELECT Nombre from equipos ORDER BY Nombre ASC";
+            $sql = "SELECT equipo_local from partidos ORDER BY Nombre ASC";
+            $resultado = $this->realizarConsulta($sql);
+            $arrayEquipos = [];
+
+            if ($resultado != null) {
+                while ($fila = $resultado->fetch_assoc()) {
+                    $arrayEquipos [] = $fila;
+                }
+                return $arrayEquipos;
+            } else {
+                return null;
+            }
+        }
+
+        function listaEquiposVisitantes()
+        {
+            $sql = "SELECT equipo_visitante from partidos ORDER BY Nombre ASC";
             $resultado = $this->realizarConsulta($sql);
             $arrayEquipos = [];
 

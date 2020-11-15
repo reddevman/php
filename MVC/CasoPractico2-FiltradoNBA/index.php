@@ -13,8 +13,8 @@
     <?php
     include 'lib/nba.php';
     $bbdd = new Nba();
-    $local = $bbdd->listaEquipos();
-    $visitante = $bbdd->listaEquipos();
+    $local = $bbdd->listaEquiposLocales();
+    $visitante = $bbdd->listaEquiposVisitantes();
     $temporada = $bbdd->listaTemporadas();
     ?>
 
