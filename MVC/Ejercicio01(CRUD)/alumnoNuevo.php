@@ -9,7 +9,7 @@
     $edad = $_POST["edad"];
 
     if (isset($nombre,$apellidos,$edad) && !empty($nombre) && !empty ($apellidos)) {
-        $alumnoNuevo = new Escuela();
+        $alumnoNuevo = new Alumnos();
         $alumnoNuevo->insertarAlumno($nombre,$apellidos,$edad);
         echo "Alumno almacenado en la base de datos.";
     } else {

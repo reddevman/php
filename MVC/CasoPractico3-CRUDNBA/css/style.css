@@ -1,0 +1,39 @@
+body {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+main {
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+header img {
+    width: 200px;
+}
+
+input[type=submit] {
+    padding: 15px;
+    border: 2px solid black;
+    border-radius: 10px;
+}
+
+input[type=submit]:hover {
+    font-weight: bold;
+    letter-spacing: 2px;
+    background: #006AB6;
+    color: white;
+    border: 2px solid #EC164A;
+}
+
+form {
+    width: 70%;
+    margin: 0 auto;
+}
+
+form fieldset legend {
+    width: 20%;
+    margin: 0 auto;
+    font-weight: bold;
+    color: #EC164A;
+}
