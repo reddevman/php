@@ -20,7 +20,7 @@
 
     <main>
         <header>
-            <img src="css/NBA-logo-png-download-free-1200x675.png" alt="logo nba">
+            <img src="css/NBA-logo.png" alt="logo nba">
             <h1>Filtrado NBA</h1>
         </header>
         <section>
