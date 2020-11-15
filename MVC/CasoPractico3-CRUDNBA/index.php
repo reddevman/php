@@ -11,7 +11,7 @@
 <body>
 
     <?php
-    include 'lib/nba.php';
+    include "lib/nba.php";
     $bbdd = new Nba();
     $conferencia = $bbdd->listaConferencias();
     $division = $bbdd->listaDivisiones();
@@ -24,7 +24,7 @@
         </header>
         <section>
             <h3>Formulario insertar</h3>
-            <form action="lib/insertarDB.php" method="post">
+            <form action="insertarDB.php" method="post">
                 <fieldset>
                     <legend>Añadir un equipo</legend>
                     <label for="nombre">Nombre</label><br>

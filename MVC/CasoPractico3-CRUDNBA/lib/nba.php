@@ -1,6 +1,6 @@
 <?php
 
-include 'dbNBA.php';
+include "lib/dbNBA.php";
 class Nba extends dbNBA
 {
     function __construct()
@@ -11,20 +11,12 @@ class Nba extends dbNBA
     # FUNCIÓN INSERTAR
     function insertarEquipo($nombre, $ciudad, $conferencia, $division)
     {
-        if ($this->error == false) {
             $sql = "INSERT INTO equipos (Nombre,Ciudad,Conferencia,Division) VALUES
                     ('" . $nombre . "','" . $ciudad . "','" . $conferencia . "','" . $division . "')";
-            echo "Registro insertado";
-            if (!$this->conexion->query($sql)) {
-                echo "Fallo en la inserción: (" . $this->conexion->errno . ") " . $this->conexion->error;
-                return false;
-            }
-            return true;
-        } else {
-            return false;
-        }
+            $this->conexion->query($sql);
     }
 
+    
     # FUNCIÓN ACTUALIZAR
     function actualizarEquipo($nombre, $ciudad, $conferencia, $division)
     {

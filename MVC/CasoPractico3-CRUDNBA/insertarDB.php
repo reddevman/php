@@ -11,16 +11,14 @@
 <body>
 
     <?php
-    include 'nba.php';
+    include "lib/nba.php";
     $bbdd = new Nba();
     $nombre = $_POST['nombre'];
     $ciudad = $_POST['ciudad'];
     $conferencia = $_POST['conferencia'];
     $division = $_POST['division'];
-    if (
-        isset($nombre, $ciudad, $conferencia, $division) && !empty($nombre) && !empty($ciudad)
-        && !empty($conferencia) && !empty($division)
-    ) {
+    if (isset($nombre, $ciudad, $conferencia, $division) && !empty($nombre) && !empty($ciudad)
+        && !empty($conferencia) && !empty($division)) {
         $insercion = $bbdd->insertarEquipo($nombre, $ciudad, $conferencia, $division);
     } else {
         echo "No se pudo hacer la consulta de la inserción";
@@ -37,8 +35,8 @@
 
             <?php
             echo "<h3>El último registro que se ha añadido es:</h3>";
-            if ($insercion != null) {
-                foreach ($insercion as $nuevo) {
+            if ($mostrar != null) {
+                foreach ($mostrar as $nuevo) {
                     echo "<b>Nombre: </b>" . $nuevo['Nombre'] . "<br>";
                     echo "<b>Ciudad: </b>" . $nuevo['Ciudad'] . "<br>";
                     echo "<b>Conferencia: </b>" . $nuevo['Conferencia'] . "<br>";
