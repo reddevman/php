@@ -21,6 +21,11 @@
             }
         }
 
+        function getConn()
+        {
+            return $this->conn;
+        }
+
         # Funciones para saber si hay error y para enviar un mensaje de error
         public function hayError()
         {

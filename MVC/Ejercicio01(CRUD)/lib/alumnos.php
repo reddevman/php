@@ -42,14 +42,14 @@
             
             # Asignamos al query la consulta de la conexión que realicemos la variable que contiene la sentencia de sql
             # Imprescindible para que almacene los datos
-            $this->conn->query($insertarSql);
+            $this->getConn()->query($insertarSql);
         }
 
         public function actualizarAlumno($id,$nombre,$apellidos,$edad)
         {
             $actualizarSql = "UPDATE alumnos SET nombre = '" . $nombre . "', apellidos = '" . $apellidos . "', edad = " . $edad . "
             WHERE id = " . $id;
-            $this->conn->query($actualizarSql);
+            $this->getConn()->query($actualizarSql);
         }
 
         public function borrarUsuario($id)

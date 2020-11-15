@@ -1,13 +1,13 @@
 <?php
 
-    class dbNBA
+    class db
     {
         private $host = "localhost";
         private $user = "root";
         private $pass = "";
         private $db_name = "nba";
 
-        private $conexion;
+        protected $conexion;
 
         private $error = false; private $error_msj = "";
 
@@ -18,6 +18,11 @@
             if ($this->conexion->connect_errno) {
                 $this->error =  true;
             }
+        }
+
+        function getConexion()
+        {
+            return $this->conexion;
         }
 
         function hayError()

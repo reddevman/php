@@ -1,19 +1,21 @@
 <?php
 
-include "lib/dbNBA.php";
-class Nba extends dbNBA
+include "lib/db.php";
+class Nba extends db
 {
+    private $nombre;
+
     function __construct()
     {
-        parent::__construct();
+      parent::__construct();
     }
 
     # FUNCIÓN INSERTAR
     function insertarEquipo($nombre, $ciudad, $conferencia, $division)
     {
-            $sql = "INSERT INTO equipos (Nombre,Ciudad,Conferencia,Division) VALUES
-                    ('" . $nombre . "','" . $ciudad . "','" . $conferencia . "','" . $division . "')";
-            $this->conexion->query($sql);
+        $sql = "INSERT INTO equipos (Nombre,Ciudad,Conferencia,Division) VALUES
+                ('" . $nombre . "','" . $ciudad . "','" . $conferencia . "','" . $division . "')";
+        $this->getConexion()->query($sql);
     }
 
     
@@ -28,7 +30,7 @@ class Nba extends dbNBA
     # FUNCION BORRAR
     function borrarEquipo($nombre, $ciudad, $conferencia, $division)
     {
-        if ($this->error == false) {
+        if ($this->hayError() == false) {
 
             $sql = "DELETE FROM equipos WHERE Nombre = '" . $nombre . "'";
             if (!$this->conexion->query($sql)) {
@@ -91,4 +93,11 @@ class Nba extends dbNBA
             return null;
         }
     }
+
+    function fijarNombre($nombre)
+    {
+        $this->nombre = $nombre;
+        return $nombre;
+    }
 }
+?>
