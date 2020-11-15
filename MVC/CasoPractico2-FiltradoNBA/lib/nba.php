@@ -9,7 +9,7 @@
 
         function listaEquiposLocales()
         {
-            $sql = "SELECT equipo_local from partidos ORDER BY Nombre ASC";
+            $sql = "SELECT equipo_local from partidos GROUP BY equipo_local";
             $resultado = $this->realizarConsulta($sql);
             $arrayEquipos = [];
 
@@ -25,7 +25,7 @@
 
         function listaEquiposVisitantes()
         {
-            $sql = "SELECT equipo_visitante from partidos ORDER BY Nombre ASC";
+            $sql = "SELECT equipo_visitante from partidos GROUP BY equipo_visitante";
             $resultado = $this->realizarConsulta($sql);
             $arrayEquipos = [];
 

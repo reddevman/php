@@ -31,7 +31,7 @@
                 echo "<select name= \"elocales\">";
                 if ($local != null) {
                     foreach ($local as $equipo) {
-                        $nombre = $equipo['Nombre'];
+                        $nombre = $equipo['equipo_local'];
                         echo "<option value=\".$nombre.\">" . $nombre . "</option>";
                     }
                     echo "</select>";
@@ -42,7 +42,7 @@
                 echo "<select name= \"evisitantes\">";
                 if ($visitante != null) {
                     foreach ($visitante as $equipo) {
-                        $nombre = $equipo['Nombre'];
+                        $nombre = $equipo['equipo_visitante'];
                         echo "<option value=\".$nombre.\">" . $nombre . "</option>";
                     }
                     echo "</select>";
