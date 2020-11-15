@@ -9,6 +9,15 @@
 </head>
 
 <body>
+
+    <?php
+    include 'lib/nba.php';
+    $bbdd = new Nba();
+    $local = $bbdd->listaEquipos();
+    $visitante = $bbdd->listaEquipos();
+    $temporada = $bbdd->listaTemporadas();
+    ?>
+
     <main>
         <header>
             <img src="css/NBA-logo-png-download-free-1200x675.png" alt="logo nba">
@@ -17,17 +26,40 @@
         <section>
             <form action="filtrado.php" method="post">
                 <h4>Equipo local</h4>
-                <select name="elocales">
-                    
-                </select>
+
+                <?php
+                echo "<select name= \"elocales\">";
+                if ($local != null) {
+                    foreach ($local as $equipo) {
+                        $nombre = $equipo['Nombre'];
+                        echo "<option value=\".$nombre.\">" . $nombre . "</option>";
+                    }
+                    echo "</select>";
+                }
+                ?>
                 <h4>Equipo visitante</h4>
-                <select name="evisitantes">
-                
-                </select>
+                <?php
+                echo "<select name= \"evisitantes\">";
+                if ($visitante != null) {
+                    foreach ($visitante as $equipo) {
+                        $nombre = $equipo['Nombre'];
+                        echo "<option value=\".$nombre.\">" . $nombre . "</option>";
+                    }
+                    echo "</select>";
+                }
+                ?>
                 <h4>Temporada</h4>
-                <select name="temps">
+                <?php
+                echo "<select name=\"temps\">";
+                if ($temporada != null) {
+                    foreach ($temporada as $temp) {
+                        $nombre = $temp['temporada'];
+                        echo "<option value=\".$nombre.\">" . $nombre . "</option>";
+                    }
+                }
+                echo "</select>";
+                ?>
                 
-                </select>
                 <br><br>
                 <input type="submit" value="FILTRAR">
             </form>
