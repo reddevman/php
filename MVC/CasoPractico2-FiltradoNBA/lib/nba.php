@@ -1,4 +1,15 @@
 <?php
+    /** PASOS CREACIÓN ARCHIVO DE CONSULTAS
+     * - Herencia del constructor padre
+     * - Funciones con las consultas:
+     *      - Creación de la sentencia sql en una variable
+     *      - Variable resultado que almacenará la consulta mediante el método padre realizarConsulta
+     *      - Variable array que contendrá los campos de la consulta
+     *      - Bucle while para recorrer la consulta mediante un array asociativo
+     *      - Se le asigna a cada posición del array creado antes (y mientras haya datos) cada campo y su correspondiente
+     *      registro para luego devolverlo con return una vez finalizada la función
+     */
+
     include 'lib/dbNBA.php';
     class Nba extends BBDD
     {

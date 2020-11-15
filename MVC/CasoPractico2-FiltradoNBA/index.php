@@ -10,6 +10,15 @@
 
 <body>
 
+<!-- PASOS CREACIÓN DE INDEX.PHP
+
+- Creación de instancias del objeto principal que contiene las consultas
+- Creación de variables asignándoles de valor las llamadas a los métodos que contienen las consultas
+- Estructura html con form y option
+- Introducir en cada <select> un foreach que recorra el array obtenido de la consulta a la que pertenezca
+
+--->
+
     <?php
     include 'lib/nba.php';
     $bbdd = new Nba();
