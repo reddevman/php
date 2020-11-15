@@ -18,6 +18,7 @@
     $ciudad = $_POST['ciudad'];
     $conferencia = substr($_POST['conferencia'], 1, -1);
     $division = substr($_POST['division'], 1, -1);
+    
     if (isset($nombre, $ciudad, $conferencia, $division) && !empty($nombre) && !empty($ciudad)
         && !empty($conferencia) && !empty($division)) {
         $bbdd = new Nba();

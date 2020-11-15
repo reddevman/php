@@ -32,7 +32,6 @@
                     <label for="ciudad">Ciudad</label><br>
                     <input type="text" name="ciudad"><br><br>
 
-                    
                     <?php
                     echo "<label for=\"confe\">Conferencias</label><br>";
                     echo "<select name= \"conferencia\">";
