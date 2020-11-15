@@ -58,16 +58,21 @@
                         echo "</tr>";
                     }
 
-                    /* OPCIÓN CON WHILE sin devolver un array en la función filtrar()
-                    while ($fila = $filtroPartidos->fetch_assoc()) {
-                        echo "<tr>";
-                        echo "<td>" . $fila['equipo_local'] . "</td>";
-                        echo "<td>" . $fila['puntos_local'] . "</td>";
-                        echo "<td>" . $fila['equipo_visitante'] . "</td>";
-                        echo "<td>" . $fila['puntos_visitante'] . "</td>";
-                        echo "<td>" . $fila['temporada'] . "</td>";
-                        echo "</tr>";
-                    }*/
+                   /**
+                    * - NO CRECOMENDADO EN EL MODELO MVC - 
+                    * OPCIÓN CON WHILE sin devolver un array en la función filtrar()
+                    * - NO CRECOMENDADO EN EL MODELO MVC - 
+                    * while ($fila = $filtroPartidos->fetch_assoc()) {
+                    *    echo "<tr>";
+                    *    echo "<td>" . $fila['equipo_local'] . "</td>";
+                    *    echo "<td>" . $fila['puntos_local'] . "</td>";
+                    *    echo "<td>" . $fila['equipo_visitante'] . "</td>";
+                    *    echo "<td>" . $fila['puntos_visitante'] . "</td>";
+                    *    echo "<td>" . $fila['temporada'] . "</td>";
+                    *    echo "</tr>";
+                    * }
+                    */
+                    
                     echo "</table>";
                 } else {
                     echo "<h3>No hay resultados.</h3>";

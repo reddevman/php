@@ -76,8 +76,10 @@
                     AND equipo_visitante='".$equipoVisitante."' AND temporada='".$temporada."' ";
             $resultado = $this->realizarConsulta($sql);
             /**
+             *  - NO CRECOMENDADO EN EL MODELO MVC - 
              * Si quisieramos que devolviera sólo con return $resultado y prescindir del array,
              * omitiriamos el código de abajo y así podríamos usar while en la web de resultados
+             *  - NO CRECOMENDADO EN EL MODELO MVC - 
              */
             if ($resultado != null) {
                 $arrayPartidos = [];
