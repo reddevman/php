@@ -9,6 +9,16 @@
 </head>
 
 <body>
+<!-- PASOS CREACIÓN DE FILTRADO.PHP
+
+- Creación de instancias del objeto principal que contiene las consultas
+- Recogia de datos mediante $_POST y substring para recoger el campo adecuadamente
+- Variable que recogerá el método filtrar() que contendrá la sentencia sql con los resultados
+- Comprobación mediante isset y empty
+- Creación de la tabla dentro de un if que comprueba si los datos son null
+- Bucle foreach para recorrer el array asociativo y mostrar cada campo en la tabla y sus celdas
+
+--->
 
     <?php
     # Objeto de Nba, recogida de datos en variables
