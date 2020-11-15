@@ -53,8 +53,10 @@
                     }
                     ?>
 
-                    <br><br><br><br>
-                    <input type="submit" value="INSERTAR">
+                    <br><br>
+                    <input type="submit" value="INSERTAR"><br><br>
+                    <a href="listaequipos.php">LISTADO DE EQUIPOS</a>
+
                 </fieldset>
 
             </form>

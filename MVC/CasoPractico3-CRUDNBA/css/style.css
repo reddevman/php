@@ -13,6 +13,8 @@ header img {
 }
 
 input[type=submit] {
+    width: 200px;
+    text-align: center;
     padding: 15px;
     border: 2px solid black;
     border-radius: 10px;
@@ -36,4 +38,48 @@ form fieldset legend {
     margin: 0 auto;
     font-weight: bold;
     color: #EC164A;
+}
+
+a {
+    display: block;
+    width: 300px;
+    margin: 0 auto;
+    padding: 15px;
+    border: 2px solid black;
+    border-radius: 10px;
+    text-decoration: none;
+    color: black;
+}
+
+a:hover {
+    display: block;
+    font-weight: bold;
+    letter-spacing: 2px;
+    background: #006AB6;
+    color: white;
+    border: 2px solid #EC164A;
+}
+
+table {
+    width: 100%;
+    margin: 0 auto;
+    border: 1px solid black;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+table tr th {
+    border: 1px solid black;
+    background: #006AB6;
+    color: white;
+}
+
+table tr:nth-last-child(even) {
+    border: 1px solid black;
+    background: #8fd0ff;
+}
+
+table tr td {
+    border: 1px solid black;
+    padding: 10px;
 }

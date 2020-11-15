@@ -53,10 +53,11 @@
             } else {
                 echo "Error en la muestra de resultados.";
             }
+            echo "<br>";
+            echo "<a href='actualizar.php'>Actualizar registro.</a>";
+            echo "<a href='borrarDB.php?nombre=" . $nuevo ['Nombre'] . "'>BORRAR</a>";
             ?>
-            <br>
-            <a href="actualizar.php">Actualizar registro.</a>
-            <a href="borrarDB.php">Borrar registro.</a>
+            
 
         </section>
     </main>

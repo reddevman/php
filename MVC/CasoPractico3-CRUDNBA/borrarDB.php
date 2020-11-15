@@ -18,13 +18,14 @@
 
             <?php
             include "lib/nba.php";
-            # Inicio de sesión para recoger las variables que hemos almacenado para su uso en otros ficheros
-            session_start();
+
+            $nombre = $_GET['nombre'];
 
             $bbdd = new Nba();
 
-            if ($bbdd->borrarEquipo($_SESSION['nombre'], $_SESSION['ciudad'], $_SESSION['conferencia'], $_SESSION['division'])) {
+            if ($bbdd->borrarEquipo($nombre)) {
                 echo "<h3>Registro borrado.</h3>";
+                echo "<a href='listaequipos.php'>LISTADO DE EQUIPOS</a>";                
             } else {
                 echo "<h3>Error en el borrado del registro.</h3>";
             }

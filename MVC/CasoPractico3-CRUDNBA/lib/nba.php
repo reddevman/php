@@ -28,7 +28,7 @@ class Nba extends db
     }
 
     # FUNCION BORRAR
-    function borrarEquipo($nombre, $ciudad, $conferencia, $division)
+    function borrarEquipo($nombre)
     {
         if ($this->hayError() == false) {
 
@@ -94,10 +94,20 @@ class Nba extends db
         }
     }
 
-    function fijarNombre($nombre)
+    function listaEquipos()
     {
-        $this->nombre = $nombre;
-        return $nombre;
+        $sql = "SELECT * FROM equipos ORDER BY Nombre";
+        $resultado = $this->realizarConsulta($sql);
+        $arrayDivision = [];
+
+        if ($resultado != null) {
+            while ($fila = $resultado->fetch_assoc()) {
+                $arrayDivision[] = $fila;
+            }
+            return $arrayDivision;
+        } else {
+            return null;
+        }
     }
-}
+    }
 ?>
