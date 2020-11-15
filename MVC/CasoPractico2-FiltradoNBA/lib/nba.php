@@ -7,6 +7,7 @@
             parent::__construct();
         }
 
+        # Función que devuelve un array con los equipos locales para el option en HTML
         function listaEquiposLocales()
         {
             $sql = "SELECT equipo_local from partidos GROUP BY equipo_local";
@@ -23,6 +24,7 @@
             }
         }
 
+        # Función que devuelve un array con los equipos visitantes para el option en HTML
         function listaEquiposVisitantes()
         {
             $sql = "SELECT equipo_visitante from partidos GROUP BY equipo_visitante";
@@ -39,6 +41,7 @@
             }
         }
 
+        # Función que devuelve un array con las temporadas para el option en HTML
         function listaTemporadas()
         {
             $sql = "SELECT DISTINCT temporada FROM partidos ORDER BY temporada ASC";
@@ -55,6 +58,7 @@
             }
         }
 
+        # Función que devuelve en un array la consulta pedida por el ejercicio
         function filtrar($equipoLocal, $equipoVisitante, $temporada)
         {
             $sql = "SELECT equipo_local,puntos_local, equipo_visitante,puntos_visitante,temporada FROM partidos WHERE equipo_local='".$equipoLocal."' 
