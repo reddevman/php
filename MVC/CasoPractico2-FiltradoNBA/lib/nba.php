@@ -77,7 +77,7 @@
             $resultado = $this->realizarConsulta($sql);
             /**
              * Si quisieramos que devolviera sólo con return $resultado y prescindir del array,
-             * omitiriamos el código de abajo
+             * omitiriamos el código de abajo y así podríamos usar while en la web de resultados
              */
             if ($resultado != null) {
                 $arrayPartidos = [];

@@ -9,7 +9,7 @@
 </head>
 
 <body>
-<!-- PASOS CREACIÓN DE FILTRADO.PHP
+    <!-- PASOS CREACIÓN DE FILTRADO.PHP
 
 - Creación de instancias del objeto principal que contiene las consultas
 - Recogia de datos mediante $_POST y substring para recoger el campo adecuadamente
@@ -57,7 +57,6 @@
                               <td>" . $filtro['temporada'] . "</td>";
                         echo "</tr>";
                     }
-                    echo "</table>";
 
                     /* OPCIÓN CON WHILE sin devolver un array en la función filtrar()
                     while ($fila = $filtroPartidos->fetch_assoc()) {
@@ -69,7 +68,7 @@
                         echo "<td>" . $fila['temporada'] . "</td>";
                         echo "</tr>";
                     }*/
-
+                    echo "</table>";
                 } else {
                     echo "<h3>No hay resultados.</h3>";
                 }
