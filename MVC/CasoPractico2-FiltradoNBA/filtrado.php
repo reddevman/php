@@ -38,7 +38,7 @@
                               <th>Equipo Visitante</th>
                               <th>Puntos</th>
                               <th>Temporada</th></tr>";
-                              
+
                     foreach ($filtroPartidos as $filtro) {
                         echo "<tr>";
                         echo "<td>" . $filtro['equipo_local'] . "</td>
@@ -50,7 +50,7 @@
                     }
                     echo "</table>";
 
-                    /* OPCIÓN CON WHILE SI NO SE DEVOLVIERA UN ARRAY EN LA FUNCION FILTRAR
+                    /* OPCIÓN CON WHILE
                     while ($fila = $filtroPartidos->fetch_assoc()) {
                         echo "<tr>";
                         echo "<td>" . $fila['equipo_local'] . "</td>";
