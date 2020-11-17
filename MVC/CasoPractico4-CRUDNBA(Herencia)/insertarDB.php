@@ -12,13 +12,13 @@
 
     <?php
     include "lib/nba.php";
-    /*
+    
     # Inicio de sesión para almacenar las variable que cogemos de $_POST, para futuros usos
     session_start();
     $_SESSION['nombre'] = $_POST['nombre'];
     $_SESSION['ciudad'] = $_POST['nombre'];
     $_SESSION['conferencia'] = substr($_POST['conferencia'], 1, -1);
-    $_SESSION['division'] = substr($_POST['division'], 1, -1);*/
+    $_SESSION['division'] = substr($_POST['division'], 1, -1);
 
     $nombre = $_POST['nombre'];
     $ciudad = $_POST['ciudad'];
@@ -41,21 +41,21 @@
         <section>
 
             <?php
-            //$mostrar = $bbdd->mostrarEquipo($nombre);
+            $mostrar = $bbdd->mostrarEquipo($nombre);
             echo "<h3>El último registro que se ha añadido es:</h3>";
-            //if ($mostrar != null) {
-            //    foreach ($mostrar as $nuevo) {
-                    echo "<b>Nombre: </b>" . $nombre . "<br>";
-                    echo "<b>Ciudad: </b>" . $ciudad . "<br>";
-                    echo "<b>Conferencia: </b>" . $conferencia . "<br>";
-                    echo "<b>División: </b>" . $division . "<br>";
-            //    }
-            //} else {
-            //    echo "Error en la muestra de resultados.";
-            //}
+            if ($mostrar != null) {
+                foreach ($mostrar as $nuevo) {
+                    echo "<b>Nombre: </b>" . $nuevo['Nombre'] . "<br>";
+                    echo "<b>Ciudad: </b>" . $nuevo['Ciudad'] . "<br>";
+                    echo "<b>Conferencia: </b>" . $nuevo['Conferencia'] . "<br>";
+                    echo "<b>División: </b>" . $nuevo['Division'] . "<br>";
+                }
+            } else {
+                echo "Error en la muestra de resultados.";
+            }
             echo "<br>";
-            echo "<a href='actualizar.php?nombre=" . $nombre . "'>Actualizar registro.</a>";
-            echo "<a href='borrarDB.php?nombre=" . $nombre . "'>BORRAR</a>";
+            echo "<a href='actualizar.php'>Actualizar registro.</a>";
+            echo "<a href='borrarDB.php?nombre=" . $nuevo ['Nombre'] . "'>BORRAR</a>";
             ?>
             
 

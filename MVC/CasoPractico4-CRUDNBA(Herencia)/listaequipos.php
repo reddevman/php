@@ -36,7 +36,8 @@
                         echo "<td>" . $lista ['Ciudad'] . "</td>";
                         echo "<td>" . $lista ['Conferencia'] . "</td>";
                         echo "<td>" . $lista ['Division'] . "</td>";
-                        echo "<td><a href='borrarDB.php?nombre=" . $lista ['Nombre'] . "'>BORRAR</a></td>";
+                        echo "<td><a href='borrarDB.php?nombre=" . $lista ['Nombre'] . "&ciudad=" . $lista ['Ciudad'] . 
+                        "conferencia=" . $lista ['Conferencia'] . "division=" . $lista ['Division'] . "'>BORRAR</a></td>";
                         echo "</tr>";
                     }
                 }

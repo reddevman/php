@@ -12,9 +12,6 @@
 
     <?php
     include "lib/nba.php";
-    # Inicio de sesión para recoger las variables que hemos almacenado para su uso en otros ficheros
-    //session_start();
-    
     $bbdd = new Nba();
     $conferencia = $bbdd->listaConferencias();
     $division = $bbdd->listaDivisiones();
@@ -26,16 +23,15 @@
             <h1>CRUD NBA</h1>
         </header>
         <section>
-
-            <form action="actualizarDB.php" method="post">
+            <h3>Formulario insertar</h3>
+            <form action="insertarDB.php" method="post">
                 <fieldset>
-                    <legend>Actualizar un equipo</legend>
+                    <legend>Añadir un equipo</legend>
                     <label for="nombre">Nombre</label><br>
-                    
-                    <!-- Se inserta una pequeña línea de PHP para recoger la variable registrada en otras webs -->
-                    <input type="text" name="nombre" value="<?=$_REQUEST['nombre']; ?>" readonly><br><br>
+                    <input type="text" name="nombre"><br>
                     <label for="ciudad">Ciudad</label><br>
                     <input type="text" name="ciudad"><br><br>
+
                     <?php
                     echo "<label for=\"confe\">Conferencias</label><br>";
                     echo "<select name= \"conferencia\">";
@@ -56,11 +52,14 @@
                         echo "</select>";
                     }
                     ?>
-                    <br><br>
-                    <input type="submit" value="ACTUALIZAR">
-                </fieldset>
-            </form>
 
+                    <br><br>
+                    <input type="submit" value="INSERTAR"><br><br>
+                    <a href="listaequipos.php">LISTADO DE EQUIPOS</a>
+
+                </fieldset>
+
+            </form>
         </section>
     </main>
 </body>

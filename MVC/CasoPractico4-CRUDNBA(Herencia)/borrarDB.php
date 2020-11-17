@@ -19,7 +19,7 @@
             <?php
             include "lib/nba.php";
 
-            $nombre = $_REQUEST['nombre'];
+            $nombre = $_GET['nombre'];
 
             $bbdd = new Nba();
 
