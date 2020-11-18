@@ -11,14 +11,7 @@
 <body>
 
     <?php
-    include "lib/nba.php";
-    
-    # Inicio de sesión para almacenar las variable que cogemos de $_POST, para futuros usos
-    session_start();
-    $_SESSION['nombre'] = $_POST['nombre'];
-    $_SESSION['ciudad'] = $_POST['nombre'];
-    $_SESSION['conferencia'] = substr($_POST['conferencia'], 1, -1);
-    $_SESSION['division'] = substr($_POST['division'], 1, -1);
+    include "lib/equipo.php";
 
     $nombre = $_POST['nombre'];
     $ciudad = $_POST['ciudad'];
@@ -27,7 +20,7 @@
 
     if (isset($nombre, $ciudad, $conferencia, $division) && !empty($nombre) && !empty($ciudad)
         && !empty($conferencia) && !empty($division)) {
-        $bbdd = new Nba();
+        $bbdd = new Equipo();
         $bbdd->insertarEquipo($nombre, $ciudad, $conferencia, $division);
     } else {
         echo "No se pudo hacer la consulta de la inserción";

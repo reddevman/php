@@ -24,8 +24,8 @@
                     <th>Opciones</th>
                 </tr>
             <?php
-                include "lib/nba.php";
-                $bbdd = new Nba();
+                include "lib/equipo.php";
+                $bbdd = new Equipo();
 
                 $listaEquipos = $bbdd->listaEquipos();
 

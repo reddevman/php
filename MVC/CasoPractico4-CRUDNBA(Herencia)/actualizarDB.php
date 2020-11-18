@@ -11,9 +11,9 @@
 <body>
 
     <?php
-    include "lib/nba.php";
+    include "lib/equipo.php";
 
-    $bbdd = new Nba();
+    $bbdd = new Equipo();
     $nombre = $_POST['nombre'];
     $ciudad = $_POST['ciudad'];
     $conferencia = substr($_POST['conferencia'], 1, -1);

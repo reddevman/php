@@ -11,11 +11,9 @@
 <body>
 
     <?php
-    include "lib/nba.php";
-    # Inicio de sesión para recoger las variables que hemos almacenado para su uso en otros ficheros
-    session_start();
+    include "lib/equipo.php";
     
-    $bbdd = new Nba();
+    $bbdd = new Equipo();
     $conferencia = $bbdd->listaConferencias();
     $division = $bbdd->listaDivisiones();
     ?>

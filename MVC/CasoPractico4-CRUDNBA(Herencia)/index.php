@@ -11,8 +11,8 @@
 <body>
 
     <?php
-    include "lib/nba.php";
-    $bbdd = new Nba();
+    include "lib/equipo.php";
+    $bbdd = new Equipo();
     $conferencia = $bbdd->listaConferencias();
     $division = $bbdd->listaDivisiones();
     ?>

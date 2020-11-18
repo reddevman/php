@@ -17,11 +17,11 @@
         <section>
 
             <?php
-            include "lib/nba.php";
+            include "lib/equipo.php";
 
             $nombre = $_GET['nombre'];
 
-            $bbdd = new Nba();
+            $bbdd = new Equipo();
 
             if ($bbdd->borrarEquipo($nombre)) {
                 echo "<h3>Registro borrado.</h3>";

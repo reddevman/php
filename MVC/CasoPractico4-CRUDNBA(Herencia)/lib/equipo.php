@@ -1,7 +1,7 @@
 <?php
 
 include "lib/db.php";
-class Nba extends db
+class Equipo extends db
 {
     private $nombre;
 
