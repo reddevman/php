@@ -11,8 +11,9 @@ class Jugador extends db
     }
 
     # FUNCIÓN INSERTAR
-    function insertarEquipo($nombre, $ciudad, $conferencia, $division)
+    function insertarJugador($nombre, $procedencia, $altura, $peso, $posicion, $equipo)
     {
+
         $sql = "INSERT INTO equipos (Nombre,Ciudad,Conferencia,Division) VALUES
                 ('" . $nombre . "','" . $ciudad . "','" . $conferencia . "','" . $division . "')";
         $this->getConexion()->query($sql);
