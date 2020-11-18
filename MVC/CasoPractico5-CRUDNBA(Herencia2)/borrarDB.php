@@ -25,7 +25,7 @@
 
             if ($bbdd->borrarEquipo($nombre)) {
                 echo "<h3>Registro borrado.</h3>";
-                echo "<a href='listaequipos.php'>LISTADO DE EQUIPOS</a>";                
+                echo "<a class='enlaces' href='listaequipos.php'>LISTADO DE EQUIPOS</a>";                
             } else {
                 echo "<h3>Error en el borrado del registro.</h3>";
             }

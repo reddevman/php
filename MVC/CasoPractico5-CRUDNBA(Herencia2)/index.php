@@ -11,10 +11,10 @@
 <body>
 
     <?php
-    include "lib/equipo.php";
-    $bbdd = new Equipo();
-    $conferencia = $bbdd->listaConferencias();
-    $division = $bbdd->listaDivisiones();
+    include "lib/jugador.php";
+    $bbdd = new Jugador();
+    $posicion = $bbdd->listaPosiciones();
+    $equipo = $bbdd->listaNombreEquipos();
     ?>
 
     <main>
@@ -26,27 +26,27 @@
             <h3>Formulario insertar</h3>
             <form action="insertarDB.php" method="post">
                 <fieldset>
-                    <legend>Añadir un equipo</legend>
+                    <legend>Añadir un jugador</legend>
                     <label for="nombre">Nombre</label><br>
                     <input type="text" name="nombre"><br>
-                    <label for="ciudad">Ciudad</label><br>
-                    <input type="text" name="ciudad"><br><br>
+                    <label for="procedencia">Procedencia</label><br>
+                    <input type="text" name="procedencia"><br>
 
                     <?php
-                    echo "<label for=\"confe\">Conferencias</label><br>";
-                    echo "<select name= \"conferencia\">";
-                    if ($conferencia != null) {
-                        foreach ($conferencia as $confe) {
-                            $nombre = $confe['Conferencia'];
+                    echo "<label for=\"pos\">Posición</label><br>";
+                    echo "<select name= \"posicion\">";
+                    if ($posicion != null) {
+                        foreach ($posicion as $posic) {
+                            $nombre = $posic['Posicion'];
                             echo "<option value=\".$nombre.\">" . $nombre . "</option>";
                         }
-                        echo "</select><br><br>";
+                        echo "</select><br>";
                     }
-                    echo "<label for=\"divi\">Divisiones</label><br>";
-                    echo "<select name= \"division\">";
-                    if ($division != null) {
-                        foreach ($division as $divis) {
-                            $nombre = $divis['Division'];
+                    echo "<label for=\"equip\">Equipos</label><br>";
+                    echo "<select name= \"equipo\">";
+                    if ($equipo != null) {
+                        foreach ($equipo as $equip) {
+                            $nombre = $equip['Nombre_equipo'];
                             echo "<option value=\".$nombre.\">" . $nombre . "</option>";
                         }
                         echo "</select>";
@@ -55,7 +55,7 @@
 
                     <br><br>
                     <input type="submit" value="INSERTAR"><br><br>
-                    <a href="listaequipos.php">LISTADO DE EQUIPOS</a>
+                    <a class="enlaces" href="listajugadores.php">LISTADO DE JUGADORES</a>
 
                 </fieldset>
 

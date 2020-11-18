@@ -18,25 +18,29 @@
             <table>
                 <tr>
                     <th>Nombre</th>
-                    <th>Ciudad</th>
-                    <th>Conferencia</th>
-                    <th>División</th>
+                    <th>Procedencia</th>
+                    <th>Altura</th>
+                    <th>Peso</th>
+                    <th>Posicion</th>
+                    <th>Nombre_equipo</th>
                     <th>Opciones</th>
                 </tr>
             <?php
-                include "lib/equipo.php";
-                $bbdd = new Equipo();
+                include "lib/jugador.php";
+                $bbdd = new Jugador();
 
-                $listaEquipos = $bbdd->listaEquipos();
+                $listaEquipos = $bbdd->listaJugadores();
 
                 if ($listaEquipos != null) {
                     foreach ($listaEquipos as $lista) {
                         echo "<tr>";
                         echo "<td>" . $lista ['Nombre'] . "</td>";
-                        echo "<td>" . $lista ['Ciudad'] . "</td>";
-                        echo "<td>" . $lista ['Conferencia'] . "</td>";
-                        echo "<td>" . $lista ['Division'] . "</td>";
-                        echo "<td><a href='borrarDB.php?nombre=" . $lista ['Nombre'] . "'>BORRAR</a></td>";
+                        echo "<td>" . $lista ['Procedencia'] . "</td>";
+                        echo "<td>" . $lista ['Altura'] . "</td>";
+                        echo "<td>" . $lista ['Peso'] . "</td>";
+                        echo "<td>" . $lista ['Posicion'] . "</td>";
+                        echo "<td>" . $lista ['Nombre_equipo'] . "</td>";
+                        echo "<td><a class='enlaces linkborrar' href='borrarDB.php?nombre=" . $lista ['Nombre'] . "'>BORRAR</a></td>";
                         echo "</tr>";
                     }
                 }

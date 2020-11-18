@@ -54,8 +54,8 @@
             //    echo "Error en la muestra de resultados.";
             //}
             echo "<br>";
-            echo "<a href='actualizar.php?nombre=" . $nombre . "'>Actualizar registro.</a>";
-            echo "<a href='borrarDB.php?nombre=" . $nombre . "'>BORRAR</a>";
+            echo "<a class='enlaces' href='actualizar.php?nombre=" . $nombre . "'>Actualizar registro.</a>";
+            echo "<a class='enlaces' href='borrarDB.php?nombre=" . $nombre . "'>BORRAR</a>";
             ?>
             
 

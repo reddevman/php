@@ -40,7 +40,7 @@ form fieldset legend {
     color: #EC164A;
 }
 
-a {
+.enlaces {
     display: block;
     width: 300px;
     margin: 0 auto;
@@ -51,13 +51,17 @@ a {
     color: black;
 }
 
-a:hover {
+.enlaces:hover {
     display: block;
     font-weight: bold;
     letter-spacing: 2px;
     background: #006AB6;
     color: white;
     border: 2px solid #EC164A;
+}
+
+.linkborrar {
+    width: auto;
 }
 
 table {

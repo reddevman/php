@@ -1,7 +1,7 @@
 <?php
 
 include "lib/db.php";
-class Equipo extends db
+class Jugador extends db
 {
     private $nombre;
 
@@ -61,9 +61,9 @@ class Equipo extends db
     }
 
     # Función que devuelve un array con las conferencias para el option en HTML
-    function listaConferencias()
+    function listaPosiciones()
     {
-        $sql = "SELECT DISTINCT Conferencia FROM equipos ORDER BY Conferencia";
+        $sql = "SELECT DISTINCT Posicion FROM jugadores ORDER BY Posicion";
         $resultado = $this->realizarConsulta($sql);
         $arrayConferencias = [];
 
@@ -78,9 +78,9 @@ class Equipo extends db
 
     }
     # Función que devuelve un array con las divisiones para el option en HTML
-    function listaDivisiones()
+    function listaNombreEquipos()
     {
-        $sql = "SELECT DISTINCT Division FROM equipos ORDER BY Division";
+        $sql = "SELECT DISTINCT Nombre_equipo FROM jugadores ORDER BY Nombre_equipo";
         $resultado = $this->realizarConsulta($sql);
         $arrayDivision = [];
 
@@ -94,9 +94,9 @@ class Equipo extends db
         }
     }
 
-    function listaEquipos()
+    function listaJugadores()
     {
-        $sql = "SELECT * FROM equipos ORDER BY Nombre";
+        $sql = "SELECT * FROM jugadores ORDER BY Nombre";
         $resultado = $this->realizarConsulta($sql);
         $arrayDivision = [];
 
