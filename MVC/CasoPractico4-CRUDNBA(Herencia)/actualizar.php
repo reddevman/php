@@ -12,6 +12,8 @@
 
     <?php
     include "lib/equipo.php";
+    # Inicio de sesión para recoger las variables que hemos almacenado para su uso en otros ficheros
+    //session_start();
     
     $bbdd = new Equipo();
     $conferencia = $bbdd->listaConferencias();
@@ -31,7 +33,7 @@
                     <label for="nombre">Nombre</label><br>
                     
                     <!-- Se inserta una pequeña línea de PHP para recoger la variable registrada en otras webs -->
-                    <input type="text" name="nombre" value="<?php echo $_SESSION['nombre']; ?>" readonly><br><br>
+                    <input type="text" name="nombre" value="<?=$_REQUEST['nombre']; ?>" readonly><br><br>
                     <label for="ciudad">Ciudad</label><br>
                     <input type="text" name="ciudad"><br><br>
                     <?php

@@ -48,9 +48,10 @@
             } else {
                 echo "Error en la muestra de resultados.";
             }
+            echo "<a href='actualizar.php?nombre=" . $nombre . "'>Actualizar registro.</a>";
+            echo "<a href='borrarDB.php?nombre=" . $nombre . "'>BORRAR</a>";
             ?>
-            <a href="actualizar.php">Actualizar registro</a><br>
-            <a href="borrarDB.php">Borrar registro</a>
+            
             
         </section>
     </main>

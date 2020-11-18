@@ -19,7 +19,7 @@
             <?php
             include "lib/equipo.php";
 
-            $nombre = $_GET['nombre'];
+            $nombre = $_REQUEST['nombre'];
 
             $bbdd = new Equipo();
 
