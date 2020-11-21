@@ -23,7 +23,8 @@ class Jugador extends db
     # FUNCIÓN ACTUALIZAR
     function actualizarJugador($nombre, $procedencia, $altura, $peso, $posicion, $equipo)
     {
-        $sql = "UPDATE equipos SET codigo = NULL, Procedencia = '" . $procedencia . "', Altura = '" . $altura . "', Peso = '" . $peso . "',
+        $codigo = NULL;
+        $sql = "UPDATE equipos SET codigo = '" . $codigo . "', Procedencia = '" . $procedencia . "', Altura = '" . $altura . "', Peso = '" . $peso . "',
                 Posicion = '" . $posicion . "', Nombre_equipo = '" . $equipo . "' WHERE Nombre = '" . $nombre . "'";
         $this->conexion->query($sql);
     }
