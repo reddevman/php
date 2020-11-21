@@ -11,7 +11,7 @@
 <body>
 
     <?php
-    include "lib/equipo.php";
+    include "lib/jugador.php";
     /*
     # Inicio de sesión para almacenar las variable que cogemos de $_POST, para futuros usos
     session_start();
@@ -21,21 +21,23 @@
     $_SESSION['division'] = substr($_POST['division'], 1, -1);*/
 
     $nombre = $_POST['nombre'];
-    $ciudad = $_POST['ciudad'];
-    $conferencia = substr($_POST['conferencia'], 1, -1);
-    $division = substr($_POST['division'], 1, -1);
+    $procedencia = $_POST['procedencia'];
+    $altura = $_POST['altura'];
+    $peso = $_POST['peso'];
+    $posicion = substr($_POST['posicion'], 1, -1);
+    $equipo = substr($_POST['equipo'], 1, -1);
 
-    if (isset($nombre, $ciudad, $conferencia, $division) && !empty($nombre) && !empty($ciudad)
-        && !empty($conferencia) && !empty($division)) {
-        $bbdd = new Equipo();
-        $bbdd->insertarEquipo($nombre, $ciudad, $conferencia, $division);
+    if (isset($nombre, $procedencia, $altura, $peso, $posicion, $equipo) && !empty($nombre) && !empty($procedencia)
+        && !empty($altura) && !empty($peso) && !empty($posicion) && !empty($equipo)) {
+        $bbdd = new Jugador();
+        $bbdd->insertarJugador($nombre, $procedencia, $altura, $peso, $posicion, $equipo);
     } else {
         echo "No se pudo hacer la consulta de la inserción";
     }
     ?>
     <main>
         <header>
-            <img src="css/NBA-logo.png" alt="logo nba">
+            <a href="index.php"><img src="css/NBA-logo.png" alt="logo nba"></a>
             <h1>CRUD NBA</h1>
         </header>
         <section>
@@ -46,9 +48,11 @@
             //if ($mostrar != null) {
             //    foreach ($mostrar as $nuevo) {
                     echo "<b>Nombre: </b>" . $nombre . "<br>";
-                    echo "<b>Ciudad: </b>" . $ciudad . "<br>";
-                    echo "<b>Conferencia: </b>" . $conferencia . "<br>";
-                    echo "<b>División: </b>" . $division . "<br>";
+                    echo "<b>Ciudad: </b>" . $procedencia . "<br>";
+                    echo "<b>Conferencia: </b>" . $altura . "<br>";
+                    echo "<b>Peso: </b>" . $peso . "<br>";
+                    echo "<b>Posición: </b>" . $posicion . "<br>";
+                    echo "<b>Equipo: </b>" . $equipo . "<br>";
             //    }
             //} else {
             //    echo "Error en la muestra de resultados.";

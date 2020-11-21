@@ -11,21 +11,21 @@
 <body>
     <main>
         <header>
-            <img src="css/NBA-logo.png" alt="logo nba">
+            <a href="index.php"><img src="css/NBA-logo.png" alt="logo nba"></a>
             <h1>CRUD NBA</h1>
         </header>
         <section>
 
             <?php
-            include "lib/equipo.php";
+            include "lib/jugador.php";
 
             $nombre = $_REQUEST['nombre'];
 
-            $bbdd = new Equipo();
+            $bbdd = new Jugador();
 
-            if ($bbdd->borrarEquipo($nombre)) {
+            if ($bbdd->borrarJugador($nombre)) {
                 echo "<h3>Registro borrado.</h3>";
-                echo "<a class='enlaces' href='listaequipos.php'>LISTADO DE EQUIPOS</a>";                
+                echo "<a class='enlaces' href='listajugadores.php'>LISTADO DE JUGADORES</a>";                
             } else {
                 echo "<h3>Error en el borrado del registro.</h3>";
             }

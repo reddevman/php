@@ -11,7 +11,7 @@
 <body>
     <main>
         <header>
-            <img src="css/NBA-logo.png" alt="logo nba">
+            <a href="index.php"><img src="css/NBA-logo.png" alt="logo nba"></a>
             <h1>CRUD NBA</h1>
         </header>
         <section>

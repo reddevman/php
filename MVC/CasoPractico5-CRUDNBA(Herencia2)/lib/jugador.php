@@ -14,26 +14,26 @@ class Jugador extends db
     function insertarJugador($nombre, $procedencia, $altura, $peso, $posicion, $equipo)
     {
 
-        $sql = "INSERT INTO equipos (Nombre,Ciudad,Conferencia,Division) VALUES
-                ('" . $nombre . "','" . $ciudad . "','" . $conferencia . "','" . $division . "')";
+        $sql = "INSERT INTO jugadores (Nombre,Procedencia,Altura,Peso,Posicion,Nombre_equipo) VALUES
+                ('" . $nombre . "','" . $procedencia . "','" . $altura . "','" . $peso . "','" . $posicion . "','" . $equipo . "')";
         $this->getConexion()->query($sql);
     }
 
     
     # FUNCIÓN ACTUALIZAR
-    function actualizarEquipo($nombre, $ciudad, $conferencia, $division)
+    function actualizarJugador($nombre, $procedencia, $altura, $peso, $posicion, $equipo)
     {
-        $sql = "UPDATE equipos SET Ciudad = '" . $ciudad . "', Conferencia = '" . $conferencia . "', Division = '" . $division . "' 
-                    WHERE Nombre = '" . $nombre . "'";
+        $sql = "UPDATE equipos SET codigo = NULL, Procedencia = '" . $procedencia . "', Altura = '" . $altura . "', Peso = '" . $peso . "',
+                Posicion = '" . $posicion . "', Nombre_equipo = '" . $equipo . "' WHERE Nombre = '" . $nombre . "'";
         $this->conexion->query($sql);
     }
 
     # FUNCION BORRAR
-    function borrarEquipo($nombre)
+    function borrarJugador($nombre)
     {
         if ($this->hayError() == false) {
 
-            $sql = "DELETE FROM equipos WHERE Nombre = '" . $nombre . "'";
+            $sql = "DELETE FROM jugadores WHERE Nombre = '" . $nombre . "'";
             if (!$this->conexion->query($sql)) {
                 echo "Falló el borrado del equipo: (" . $this->conexion->connect_errno . ")" . $this->conexion->error;
                 return false;
@@ -45,9 +45,9 @@ class Jugador extends db
     }
 
     # FUNCION MOSTRAR EQUIPO INSERTADO
-    function mostrarEquipo($nombre)
+    function mostrarJugador($nombre)
     {
-        $sql = "SELECT * FROM equipos WHERE Nombre = '" . $nombre . "'";
+        $sql = "SELECT * FROM jugadores WHERE Nombre = '" . $nombre . "'";
         $resultado = $this->realizarConsulta($sql);
         $arrayEquipo = [];
 
@@ -61,7 +61,7 @@ class Jugador extends db
         }
     }
 
-    # Función que devuelve un array con las conferencias para el option en HTML
+    # Función que devuelve un array con las posiciones para el option en HTML
     function listaPosiciones()
     {
         $sql = "SELECT DISTINCT Posicion FROM jugadores ORDER BY Posicion";
@@ -78,7 +78,7 @@ class Jugador extends db
         }
 
     }
-    # Función que devuelve un array con las divisiones para el option en HTML
+    # Función que devuelve un array con los equipos para el option en HTML
     function listaNombreEquipos()
     {
         $sql = "SELECT DISTINCT Nombre_equipo FROM jugadores ORDER BY Nombre_equipo";
@@ -95,6 +95,7 @@ class Jugador extends db
         }
     }
 
+    # Función que devuelve una lista con los jugadores
     function listaJugadores()
     {
         $sql = "SELECT * FROM jugadores ORDER BY Nombre";

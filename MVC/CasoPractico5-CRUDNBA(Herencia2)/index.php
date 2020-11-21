@@ -19,7 +19,7 @@
 
     <main>
         <header>
-            <img src="css/NBA-logo.png" alt="logo nba">
+            <a href="index.php"><img src="css/NBA-logo.png" alt="logo nba"></a>
             <h1>CRUD NBA</h1>
         </header>
         <section>
@@ -31,6 +31,10 @@
                     <input type="text" name="nombre"><br>
                     <label for="procedencia">Procedencia</label><br>
                     <input type="text" name="procedencia"><br>
+                    <label for="altura">Altura</label><br>
+                    <input type="text" name="altura"><br>
+                    <label for="peso">Peso</label><br>
+                    <input type="text" name="peso"><br>
 
                     <?php
                     echo "<label for=\"pos\">Posición</label><br>";
