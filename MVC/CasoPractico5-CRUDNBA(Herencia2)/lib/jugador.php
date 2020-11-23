@@ -15,7 +15,7 @@ class Jugador extends db
     {
         $codigo = (int) $this->conexion->query("SELECT MAX(codigo) FROM jugadores");
         $codigoFinal = $codigo + 1;
-        $sql = "INSERT INTO jugadores (Codigo, Nombre,Procedencia,Altura,Peso,Posicion,Nombre_equipo) VALUES
+        $sql = "INSERT INTO jugadores (codigo, Nombre,Procedencia,Altura,Peso,Posicion,Nombre_equipo) VALUES
                 ($codigoFinal, '" . $nombre . "','" . $procedencia . "','" . $altura . "','" . $peso . "','" . $posicion . "','" . $equipo . "')";
         $this->conexion->query($sql);
     }
