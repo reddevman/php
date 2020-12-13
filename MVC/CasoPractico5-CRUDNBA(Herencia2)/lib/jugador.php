@@ -13,17 +13,19 @@ class Jugador extends db
     # FUNCIÓN INSERTAR
     function insertarJugador($nombre, $procedencia, $altura, $peso, $posicion, $equipo)
     {
-
-        $sql = "INSERT INTO jugadores (Nombre,Procedencia,Altura,Peso,Posicion,Nombre_equipo) VALUES
-                ('" . $nombre . "','" . $procedencia . "','" . $altura . "','" . $peso . "','" . $posicion . "','" . $equipo . "')";
-        $this->getConexion()->query($sql);
+        $codigo = (int) $this->conexion->query("SELECT MAX(codigo) FROM jugadores");
+        $codigoFinal = $codigo + 1;
+        $sql = "INSERT INTO jugadores (codigo, Nombre,Procedencia,Altura,Peso,Posicion,Nombre_equipo) VALUES
+                ($codigoFinal, '" . $nombre . "','" . $procedencia . "','" . $altura . "','" . $peso . "','" . $posicion . "','" . $equipo . "')";
+        $this->conexion->query($sql);
     }
 
     
     # FUNCIÓN ACTUALIZAR
     function actualizarJugador($nombre, $procedencia, $altura, $peso, $posicion, $equipo)
     {
-        $codigo = NULL;
+        $codigo = $this->conexion->query("SELECT MAX(codigo) FROM jugadores WHERE nombre = '" . $nombre . "'");
+
         $sql = "UPDATE equipos SET codigo = '" . $codigo . "', Procedencia = '" . $procedencia . "', Altura = '" . $altura . "', Peso = '" . $peso . "',
                 Posicion = '" . $posicion . "', Nombre_equipo = '" . $equipo . "' WHERE Nombre = '" . $nombre . "'";
         $this->conexion->query($sql);
