@@ -1,5 +1,5 @@
 <?php
-    require 'jugador.php';
+    include 'jugador.php';
 
     class Equipo {
         private $jugadores;

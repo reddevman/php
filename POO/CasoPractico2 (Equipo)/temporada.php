@@ -1,6 +1,5 @@
 <?php
-    require 'jugador.php';
-    require 'equipo.php';
+    include 'equipo.php';
 
     $equipo = new Equipo();
 

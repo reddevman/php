@@ -1,15 +1,14 @@
 <?php
-#Se crean de forma aleatoria un número de dados
-$numeroDados = rand(2,7);
 
-# Se crea un dado que será un array el cual contrendrá tiradas
-$dado = array();
+$miArray = [];
 
-for ($i=1; $i <= $numeroDados; $i++) { 
-    $dado[$i] = rand(1,6);
+$numero = 3;
+
+for ($i=0; $i < 6; $i++) { 
+    for ($j=0; $j < 4; $j++) { 
+        $miArray[$i][$j] = $numero;
+        $numero += 3;
+    }
 }
 
-foreach ($dado as $tirada) {
-    echo "$tirada\n";
-}
-
+?>

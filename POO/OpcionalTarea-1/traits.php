@@ -8,7 +8,7 @@
         public function datosCliente($dni){
             $this->dni = $dni;
             echo 'Los nombres y apellidos del cliente asegurado, con dni ' . $dni . ', son:<br>';
-            echo $this->getNombre() . ' '  .$this->getApellidos() . '.<br><br>';
+            echo $this->getNombre() . ' '  . $this->getApellidos() . '.<br><br>';
         }
 
         public function totalSinIVA(){

@@ -16,7 +16,7 @@
         }
 
         public function setNumeroJug($numeroJug) {
-            $this->$numeroJug = $numeroJug;
+            $this->numeroJug = $numeroJug;
         }
 
         public function getPtos()
