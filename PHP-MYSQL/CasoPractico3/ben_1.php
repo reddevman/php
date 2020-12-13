@@ -34,7 +34,7 @@
             // SEMANA 1
         # Se crea la consulta con el método query
         $resultadoV1 = $conMysql->query("SELECT ROUND(SUM(venta),2) as TotalVentas1 from ventas where num_semana='1'");
-        # Asignar a una variable un array de la consulta obtenida ya que query devuelve un resultado, ningún de string
+        # Asignar a una variable un array de la consulta obtenida ya que query devuelve un resultado, ningún string
         $resultadoTotalV1 = $resultadoV1->fetch_assoc();
 
         // GASTOS
