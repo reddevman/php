@@ -1,11 +1,11 @@
 <?php
 
-    class db
+class db
     {
         private $host = "localhost";
         private $user = "root";
         private $pass = "";
-        private $db_name = "nba";
+        private $db_name = "empresa";
 
         private $conexion;
 
@@ -19,7 +19,7 @@
                 $this->error =  true;
             }
         }
-
+        
         function getConexion()
         {
             return $this->conexion;
@@ -46,5 +46,3 @@
             }
         }
     }
-
-?>

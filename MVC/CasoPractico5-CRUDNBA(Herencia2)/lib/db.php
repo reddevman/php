@@ -7,7 +7,7 @@
         private $pass = "";
         private $db_name = "nba";
 
-        protected $conexion;
+        private $conexion;
 
         private $error = false; private $error_msj = "";
 

@@ -15,7 +15,7 @@ class Equipo extends db
     {
         $sql = "INSERT INTO equipos (Nombre,Ciudad,Conferencia,Division) VALUES
                 ('" . $nombre . "','" . $ciudad . "','" . $conferencia . "','" . $division . "')";
-        $this->getConexion()->query($sql);
+        $this->conexion->query($sql);
     }
 
     
