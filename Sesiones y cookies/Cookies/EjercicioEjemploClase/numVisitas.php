@@ -16,8 +16,9 @@
     $valor = $_COOKIE['numVisitas'] + 1;
     setcookie('numVisitas', $valor);
   }
-
-  echo "Número de visitas = " . $_COOKIE['numVisitas'];
+  if (isset($_COOKIE['numVisitas'])) {
+    echo "Número de visitas = " . $_COOKIE['numVisitas'];
+  }
   ?>
 </body>
 
