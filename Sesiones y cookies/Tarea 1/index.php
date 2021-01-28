@@ -38,12 +38,6 @@ session_start();
             } else {
                 echo "Introduce un nombre para iniciar sesión :)";
             }
-            // if (isset($_GET['nombre']) && !empty($_GET['nombre'])) {
-            //     $_SESSION['nombre'] = $_GET['nombre'];
-            //     echo $_SESSION['nombre'];
-            // } else {
-            //     $_SESSION['nombre'] = null;
-            // }
             ?>
         </div>
     </div>

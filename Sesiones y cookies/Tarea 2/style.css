@@ -1,0 +1,108 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  position: relative;
+  min-height: 100%;
+  font-family: "Montserrat", sans-serif;
+  background: #f0efef;
+}
+
+.main-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+h1 {
+  text-align: center;
+}
+
+.formulario {
+  align-self: center;
+  margin-top: 20px;
+}
+
+fieldset {
+  border: 2px solid black;
+  margin: 0 auto;
+}
+
+legend {
+  font-weight: bold;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+label {
+  margin: 10px;
+}
+
+/* input {
+  margin: 10px;
+} */
+
+.btn-send {
+  background: tomato;
+  border: 1px solid black;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.btn-send:hover {
+  background: white;
+  color: black;
+}
+
+.btn-send:active {
+  background: black;
+  color: white;
+}
+
+.btn-close {
+  background: tomato;
+  border: 1px solid black;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.btn-close:hover {
+  background: white;
+  color: black;
+}
+
+.btn-close:active {
+  background: black;
+  color: white;
+}
+
+.results {
+  margin-top: 20px;
+  align-self: center;
+}
+
+i {
+  margin-right: 10px;
+}
+
+a {
+  display: block;
+  margin-top: 10px;
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: bold;
+  color: red;
+}
+
+footer {
+  /* FOOTER en la parte inferior*/
+  position: fixed;
+  text-align: center;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  color: black;
+  background: #dcdcdc;
+  padding: 10px;
+}
