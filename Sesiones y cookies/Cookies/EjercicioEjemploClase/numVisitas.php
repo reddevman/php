@@ -9,6 +9,8 @@
 
 <body>
   <?php
+
+  // Contador de visitas
   if (!isset($_COOKIE['numVisitas'])) {
     setcookie('numVisitas', 0);
     echo "Cookie generada";
