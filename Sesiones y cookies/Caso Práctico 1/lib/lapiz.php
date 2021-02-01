@@ -1,3 +1,15 @@
+<?php
+    class Lapiz extends Articulo {
+        
+        const NOMBRE = 'lapiz';
+
+        function __construct($cantidad)
+        {
+            parent::__construct($cantidad);
+        }
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 

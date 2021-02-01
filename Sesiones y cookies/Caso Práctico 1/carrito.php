@@ -9,16 +9,13 @@
 
 <body>
     <?php
-    if (!isset($_COOKIE['lapiz'])) {
-        $valor = $_COOKIE['lapiz'];
-        setcookie('lapiz', $valor);
-        echo "Cookie generada";
-    } else {
-        $valor = $_COOKIE['lapiz'];
-        setcookie('lapiz', $valor);
-    }
+    $lapices = $_POST['lapiz'];
     if (isset($_COOKIE['lapiz'])) {
-        echo "Lápices en la cesta = " . $_COOKIE['lapiz'];
+        $valor = $_COOKIE['lapiz'] + $lapices;
+        setcookie('lapiz', $valor, time() + 24 * 60 * 60);
+        echo "Cookie generada con valor: " . $_COOKIE['lapiz'];
+    } else {
+        echo "No hay cookies.";
     }
     ?>
 </body>
