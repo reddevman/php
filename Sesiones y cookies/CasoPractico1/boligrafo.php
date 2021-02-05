@@ -4,16 +4,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
     <title>Tienda - Bolígrafo</title>
 </head>
 
 <body>
-    <form action="./proceso.php" method="post">
-        <label for="boligrafos">BOLIGRAFOS</label>
-        <input type="number" name="boligrafos" min="0">
-        <input type="submit" value="AÑADIR">
-    </form>
-    <a href="./index.php">INICIO</a>
+    <div class="main-wrapper">
+        <h1>2º DAW - SESIONES Y COOKIES - CASO PRÁCTICO 1</h1>
+        <div class="formulario">
+            <form action="./proceso.php" method="post">
+                <fieldset>
+                    <legend>BOLÍGRAFOS</legend>
+                    <label for="lapices">CANTIDAD</label>
+                    <input type="number" name="boligrafos" min="0">
+                    <input type="submit" value="AÑADIR">
+                </fieldset>
+            </form>
+            <a href="./index.php">INICIO</a>
+        </div>
+    </div>
+    <footer>&copy; ALEJANDRO MÁRQUEZ ARAGONÉS</footer>
 </body>
 
 </html>
