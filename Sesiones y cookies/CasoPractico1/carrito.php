@@ -24,8 +24,10 @@
             <tr>
                 <?php
                 echo "<td>";
-                // BOLIGRAFOS            
+                // BOLIGRAFOS
+                    // Artículo a 0 para que en la suma se pueda usar el valor aunque no añadamos al carrito            
                 $boligrafos = 0;
+                    // Si la cookie existe se le asigna el valor a la variable y muestra la cantidad en un mensaje
                 if (isset($_COOKIE['boligrafo'])) {
                     $boligrafos = $_COOKIE['boligrafo'];
                     echo $_COOKIE['boligrafo'] . " uds.";
@@ -72,6 +74,7 @@
                 <td colspan="3">TOTAL:</td>
                 <td>
                     <?php
+                    // Comprobación para la suma de los artículos
                     if (isset($boligrafos) || ($gomas) || ($lapices) || ($papeles)) {
                         $suma = 0;
                         $suma += $boligrafos + $gomas + $lapices + $papeles;
