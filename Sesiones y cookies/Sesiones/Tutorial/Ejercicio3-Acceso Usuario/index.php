@@ -14,6 +14,8 @@
     if (isset($_GET['error'])) {
         if ($_GET['error'] == 'si') {
             echo "Tu usuario y contraseña no son correctos";
+        } elseif ($_GET['error'] == 'fuera') {
+            echo "No puedes entrar directamente en esta web. Introduce usuario y contraseña";
         }
     }
     ?>
