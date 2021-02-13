@@ -4,7 +4,7 @@
         private $id;
         private $usuario;
         private $nombre;
-        private $apellido;
+        private $apellidos;
         private $email;
         private $rol;
         private $pass;
@@ -60,17 +60,17 @@
         /**
          * Get the value of apellido
          */ 
-        public function getApellido()
+        public function getApellidos()
         {
-            return $this->apellido;
+            return $this->apellidos;
         }
 
         /**
          * Set the value of apellido
          */ 
-        public function setApellido($apellido)
+        public function setApellidos($apellidos)
         {
-            $this->apellido = $apellido;
+            $this->apellidos = $apellidos;
         }
 
         /**

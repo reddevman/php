@@ -13,18 +13,18 @@
         <h3>REGISTRO</h3>
         <form action="seguridad.php" method="post">
             <label for="email">E-mail</label>
-            <input type="text" name="email">
+            <input type="text" name="email" required>
 
             <label for="pass1">Contraseña</label>
-            <input type="password" name="pass1">
+            <input type="password" name="pass1" required>
             <label for="pass2">Repetir contraseña</label>
-            <input type="password" name="pass2">
+            <input type="password" name="pass2" required>
 
             <label for="nombre">Nombre</label>
-            <input type="text" name="nombre">
+            <input type="text" name="nombre" required>
 
             <label for="apellidos">Apellidos</label>
-            <input type="text" name="apellidos">
+            <input type="text" name="apellidos" required>
 
             <input type="hidden" name="accion" value="registro">
             <input type="submit" value="REGISTRARSE">
