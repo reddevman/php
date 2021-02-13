@@ -1,8 +1,5 @@
 <?php
-
-    require_once "lib/db.php";
-
-    class users extends db {
+    class User {
 
         private $id;
         private $usuario;
