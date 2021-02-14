@@ -14,9 +14,19 @@ class Seguridad extends Connection
     }
 
     # FUNCIÓN PARA AÑADIR EL USUARIO A LA SESIÓN
-    public function addUsuario($usuario){
-        $_SESSION["usuario"]=$usuario;
-        $this->usuario=$usuario;
+    public function addUsuario($usuario)
+    {
+        $_SESSION["usuario"] = $usuario;
+        $this->usuario = $usuario;
+    }
+
+    # FUNCIÓN QUE BORRA LOS DATOS DE LA SESIÓN CUANDO NO SON NECESARIOS
+    public function borrarDatos()
+    {
+        $_SESSION["usuario"] = null;
+        $_SESSION["nombre"] = null;
+        $_SESSION["apellidos"] = null;
+        $_SESSION["tipo_error"] = null;
     }
 
     # FUNCIÓN DE SEGURIDAD PARA SANEAR STRING DEL FORMULARIO

@@ -1,6 +1,6 @@
 <?php
-require_once "lib/bbdd.php";
-require_once "lib/seguridad.php";
+require_once 'lib/bbdd.php';
+require_once 'lib/seguridad.php';
 
 // Objetos necesarios para la consulta y la seguridad
 $bbdd = new BBDD();
@@ -26,22 +26,24 @@ $pass = $seguridad->sanearString($_POST['pass']);
     <div>
         <h3>MI PERFIL</h3>
         <form action="" method="post">
-        <?php
+            <?php
 
-        // Comprobación rutinaria de campos de formularios
-        if (isset($_POST['usuario']) && !is_null($_POST['usuario']) &&
-            isset($_POST['pass']) && !is_null($_POST['pass'])) {
+            // Comprobación rutinaria de campos de formularios
+            if (
+                isset($_POST['usuario']) && !is_null($_POST['usuario']) &&
+                isset($_POST['pass']) && !is_null($_POST['pass'])
+            ) {
 
                 // Codificación de la contraseña tal cual fue insertada en la bbdd con anterioridad
                 $pass = password_hash($pass, PASSWORD_DEFAULT);
                 // Buscar el usuario mediante le objeto de la base de datos ya que es un método de la misma
                 $existUser = $bbdd->buscarUsuario($usuario, $pass);
 
-                if($existUser != null) {
+                if ($existUser != null) {
 
                     // Saludo mediante la obtención del nombre del usuario
                     echo "Bienvenido usuario " . $existUser->getNombre();
-                    
+
                     $seguridad->addUsuario($user);
 
                     // En los campos va a mostrar los datos antiguos
@@ -61,7 +63,7 @@ $pass = $seguridad->sanearString($_POST['pass']);
             } else {
                 header('Location:index.php');
             }
-        ?>
+            ?>
         </form>
 
     </div>

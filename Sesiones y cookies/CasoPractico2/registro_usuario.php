@@ -25,38 +25,40 @@
     $apellidos = $seguridad->sanearString($_POST['apellidos']);
 
     // Comprobación de los datos insertados por el usuario
-    if (isset($_POST['email']) && !is_null($_POST['email']) &&
+    if (
+        isset($_POST['email']) && !is_null($_POST['email']) &&
         isset($_POST['pass1']) && !is_null($_POST['pass1']) &&
         isset($_POST['pass2']) && !is_null($_POST['pass2']) &&
         isset($_POST['nombre']) && !is_null($_POST['nombre']) &&
-        isset($_POST['apellidos']) && !is_null($_POST['apellidos'])){
-        
-            // Comprobar que las dos contraseñas sean idénticas
-            if ($_POST['pass1'] === $_POST['pass2']) {
+        isset($_POST['apellidos']) && !is_null($_POST['apellidos'])
+    ) {
 
-                // Comprobar si existe el usuario, si da TRUE y lo encuentra, error
-                if($bbdd->buscarUsuario($email,NULL)) {
-                    echo "Error, ya existe el usuario";
-                    header("Location:registro.php");
-                } else {
-                    // Codificamos la contraseña
-                    $pass1 = password_hash($pass1, PASSWORD_DEFAULT);
+        // Comprobar que las dos contraseñas sean idénticas
+        if ($_POST['pass1'] === $_POST['pass2']) {
 
-                    // Se inserta un nuevo en la base de datos
-                    $newUser = $bbdd->insertarUsuario($email, $pass1, $nombre, $apellidos);
+            // Comprobar si existe el usuario, si da TRUE y lo encuentra, error
+            if ($bbdd->buscarUsuario($email, NULL)) {
+                echo "Error, ya existe el usuario";
+                header("Location:registro.php");
+            } else {
+                // Codificamos la contraseña
+                $pass1 = password_hash($pass1, PASSWORD_DEFAULT);
 
-                    // Mensaje de registro correcto
-                    if ($newUser != null) {
-                        <<<_END
+                // Se inserta un nuevo en la base de datos
+                $newUser = $bbdd->insertarUsuario($email, $pass1, $nombre, $apellidos);
+
+                // Mensaje de registro correcto
+                if ($newUser != null) {
+                    <<<_END
                         <h4>Usuario Registrado.</h4>
                         <a href="index.php">Pulsar para volver al LOGIN</a>
                         _END;
-                    }
                 }
-            } else {
-                echo "La contraseña no coincide";
-                header('Location:registro.php');
             }
+        } else {
+            echo "La contraseña no coincide";
+            header('Location:registro.php');
+        }
     }
     ?>
 </body>

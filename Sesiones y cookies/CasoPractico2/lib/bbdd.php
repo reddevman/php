@@ -4,8 +4,6 @@ require_once "lib/user.php";
 
 class BBDD extends Connection
 {
-
-
     # CONSTRUCTOR HEREDADO NECESARIO PARA LA CONEXIÓN A LA BBDD
     function __construct()
     {
@@ -46,13 +44,26 @@ class BBDD extends Connection
     }
 
     # FUNCIÓN ACTUALIZAR
-    public function actualizarUsuario($usuario, $email, $nombre, $apellidos)
+    public function actualizarUsuario($usuario, $nombre, $apellidos)
     {
+        /* Se crea un nuevo objeto de usuario y se le establece como propiedades
+        * lo introducido en los parámetros de la función.
+        */
+        $modUser = new User();
+        $modUser->setUsuario($usuario);
+        $modUser->setNombre($nombre);
+        $modUser->setApellidos($apellidos);
+
         // Sentencia de actualización
         $sql = "UPDATE usuarios SET nombre = '" . $nombre . "',apellidos =
-            '" . $apellidos . "',email = '" . $email . "' WHERE usuario = '" . $usuario . "'";
-        // Se envía la consulta a la base de datos
-        $this->conexion->query($sql);
+            '" . $apellidos . "' WHERE usuario = '" . $usuario . "'";
+
+        // Se envía la consulta a la base de datos y se devuelve el objeto usuario creado
+        if ($this->conexion->query($sql)) {
+            return $modUser;
+        } else {
+            return null;
+        }
     }
 
     # FUNCIÓN RECOGER ÚLTIMO USUARIO MODIFICADO O INSERTADO
@@ -83,12 +94,11 @@ class BBDD extends Connection
             $pass_hash = password_hash($pass, PASSWORD_DEFAULT);
             // Consulta sql para la búsqueda del usuario
             $sql = "SELECT * FROM usuarios WHERE usuario = '" . $usuario . "' AND pass = '" . $pass_hash . "'";
-        
         } else {
             // Consulta que se hará si sólo se da el nombre del usuario/email
             $sql = "SELECT * FROM usuarios WHERE usuario = '" . $usuario . "'";
         }
-        
+
         // Construcción de la consulta a la variable resultado
         $resultado = $this->realizarConsulta($sql);
         if ($resultado->num_rows > 0) {
@@ -112,7 +122,8 @@ class BBDD extends Connection
     }
 
     # FUNCIÓN BUSCAR ROLES
-    public function recogerRoles() {
+    public function recogerRoles()
+    {
         $sql = "SELECT * FROM roles";
         $resultado = $this->realizarConsulta($sql);
         return $resultado;

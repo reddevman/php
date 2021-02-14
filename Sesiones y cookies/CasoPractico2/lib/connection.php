@@ -38,8 +38,14 @@
             return $this->error_msj;
         }
 
+        # FUNCIÓN QUE DEVUELVE EL ERROR QUE HUBO EN LA CONEXIÓN
+        function getError()
+        {
+            return $this->conexion->error;
+        }
+
         # MÉTODO DE CONSULTA A LA BASE DE DATOS
-        function realizarConsulta($consulta)
+        public function realizarConsulta($consulta)
         {
             if (!$this->hayError()) {
                 $resultado = $this->conexion->query($consulta);
@@ -50,4 +56,3 @@
             }
         }
     }
-?>
