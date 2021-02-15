@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
@@ -11,7 +11,7 @@
 <body>
     <div>
         <h3>REGISTRO</h3>
-        <form action="seguridad.php" method="post">
+        <form action="registro_usuario.php" method="post">
             <label for="email">E-mail</label>
             <input type="text" name="email" required>
 

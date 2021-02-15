@@ -36,7 +36,7 @@ class BBDD extends Connection
         // Capturar id de la consulta y añadirlo a la propiedad ID del usuario
         $resultado = $this->realizarConsulta($sql);
         if ($resultado) {
-            $newUser->setId($this->conexion->insert_id);
+            $newUser->setId($this->getConexion()->insert_id);
             return $newUser;
         } else {
             return null;
@@ -105,19 +105,20 @@ class BBDD extends Connection
             // Se crea un objeto de usuario para poder rellenar los datos encontrados en la bbdd
             $usuarioDevuelto = new User();
 
-            if ($resultado != null) {
-                // Recorremos el resultado mientras haya datos y se asigna el valor encontrado al objeto
-                while ($userData = $resultado->fetch_assoc()) {
+            // Recorremos el resultado mientras haya datos y se asigna el valor encontrado al objeto
+            for ($i = 0; $i < $resultado->num_rows; $i++) {
+                if ($i == 0) {
+                    $userData = $resultado->fetch_assoc();
                     $usuarioDevuelto->setId($userData['id']);
                     $usuarioDevuelto->setEmail($userData['email']);
                     $usuarioDevuelto->setNombre($userData['nombre']);
                     $usuarioDevuelto->setApellidos($userData['apellidos']);
                 }
-                // Devolución del objeto ya rellenado con los datos necesarios
-                return $usuarioDevuelto;
-            } else {
-                return null;
             }
+            // Devolución del objeto ya rellenado con los datos necesarios
+            return $usuarioDevuelto;
+        } else {
+            return null;
         }
     }
 

@@ -1,17 +1,3 @@
-<?php
-require_once 'lib/bbdd.php';
-require_once 'lib/seguridad.php';
-
-// Objetos necesarios para la consulta y la seguridad
-$bbdd = new BBDD();
-$seguridad = new Seguridad();
-
-// Limpieza de seguridad para lo introducido en el formulario
-$user = $seguridad->sanearString($_POST['usuario']);
-$pass = $seguridad->sanearString($_POST['pass']);
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -25,46 +11,55 @@ $pass = $seguridad->sanearString($_POST['pass']);
 <body>
     <div>
         <h3>MI PERFIL</h3>
-        <form action="" method="post">
-            <?php
+        <?php
+        require_once 'lib/bbdd.php';
+        require_once 'lib/seguridad.php';
 
-            // Comprobación rutinaria de campos de formularios
-            if (
-                isset($_POST['usuario']) && !is_null($_POST['usuario']) &&
-                isset($_POST['pass']) && !is_null($_POST['pass'])
-            ) {
+        // Objetos necesarios para la consulta y la seguridad
+        $bbdd = new BBDD();
+        $seguridad = new Seguridad();
 
-                // Codificación de la contraseña tal cual fue insertada en la bbdd con anterioridad
-                $pass = password_hash($pass, PASSWORD_DEFAULT);
-                // Buscar el usuario mediante le objeto de la base de datos ya que es un método de la misma
-                $existUser = $bbdd->buscarUsuario($usuario, $pass);
+        // Limpieza de seguridad para lo introducido en el formulario
+        $user = $seguridad->sanearString($_POST['usuario']);
+        $pass = $seguridad->sanearString($_POST['pass']);
+        echo "<form action='actualizar_perfil.php' method='post'>";
 
-                if ($existUser != null) {
+        // Comprobación rutinaria de campos de formularios
+        if (
+            isset($_POST['usuario']) && !is_null($_POST['usuario']) &&
+            isset($_POST['pass']) && !is_null($_POST['pass'])) {
 
-                    // Saludo mediante la obtención del nombre del usuario
-                    echo "Bienvenido usuario " . $existUser->getNombre();
+            // Codificación de la contraseña tal cual fue insertada en la bbdd con anterioridad
+            $pass_hash = password_hash($pass, PASSWORD_DEFAULT);
+            // Buscar el usuario mediante el objeto de la base de datos ya que es un método de la misma
+            $existUser = $bbdd->buscarUsuario($user, $pass_hash);
 
-                    $seguridad->addUsuario($user);
+            if ($existUser != null) {
 
-                    // En los campos va a mostrar los datos antiguos
-                    <<<_END
-                    <label for="email">e-mail</label>
-                    <input type="text" name="email" value="$existUser->getEmail()" readonly>
-                    <label for="nombre">Nombre</label>
-                    <input type="text" name="nombre" value="$existUser->getNombre()" required>
-                    <label for="apellidos">Apellidos</label>
-                    <input type="text" name="apellidos" value="$existUser->getApellidos()" required>
-                    <input type="submit" value="ACTUALIZAR">
-                    _END;
-                } else {
-                    echo "El usuario no existe en la base de datos";
-                    echo "<a href='index.php'>Pulsar para volver a la pantalla de login</a>";
-                }
+                // Saludo mediante la obtención del nombre del usuario
+                echo "Bienvenido usuario " . $existUser->getNombre();
+
+                $seguridad->addUsuario($user);
+
+                // En los campos va a mostrar los datos antiguos
+                
+                echo "<label for='email'>e-mail</label>";
+                echo "<input type='text' name='email' value='".$existUser->getEmail()."' readonly>";
+                echo "<label for='nombre'>Nombre</label>";
+                echo "<input type='text' name='nombre' value='".$existUser->getNombre()."' required>";
+                echo "<label for='apellidos'>Apellidos</label>";
+                echo "<input type='text' name='apellidos' value='".$existUser->getApellidos()."' required>";
+                echo "<input type='submit' value='ACTUALIZAR'>";
+                
             } else {
-                header('Location:index.php');
+                echo "El usuario no existe en la base de datos";
+                echo "<a href='index.php'>Pulsar para volver a la pantalla de login</a>";
             }
-            ?>
-        </form>
+        } else {
+            header('Location:index.php');
+        }
+        echo "</form>";
+        ?>
 
     </div>
 </body>

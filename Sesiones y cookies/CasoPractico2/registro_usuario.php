@@ -34,7 +34,7 @@
     ) {
 
         // Comprobar que las dos contraseñas sean idénticas
-        if ($_POST['pass1'] === $_POST['pass2']) {
+        if ($_POST['pass1'] == $_POST['pass2']) {
 
             // Comprobar si existe el usuario, si da TRUE y lo encuentra, error
             if ($bbdd->buscarUsuario($email, NULL)) {
@@ -49,10 +49,8 @@
 
                 // Mensaje de registro correcto
                 if ($newUser != null) {
-                    <<<_END
-                        <h4>Usuario Registrado.</h4>
-                        <a href="index.php">Pulsar para volver al LOGIN</a>
-                        _END;
+                    echo "<h4>Usuario Registrado.</h4>";
+                    echo "<a href='index.php'>Pulsar para volver al LOGIN</a>";
                 }
             }
         } else {
