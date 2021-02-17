@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
     <title>Registro Completado</title>
 </head>
 
@@ -36,13 +38,14 @@
         // Comprobar que las dos contraseñas sean idénticas
         if ($_POST['pass1'] == $_POST['pass2']) {
 
+            // Codificamos la contraseña
+            // $pass1 = $seguridad->hashPass($pass1);
+
             // Comprobar si existe el usuario, si da TRUE y lo encuentra, error
-            if ($bbdd->buscarUsuario($email, NULL)) {
-                echo "Error, ya existe el usuario";
+            if ($bbdd->buscarUsuario($email, null)) {
+                $seguridad->setError("Error, ya existe el usuario");
                 header("Location:registro.php");
             } else {
-                // Codificamos la contraseña
-                // $pass1 = password_hash($pass1, PASSWORD_DEFAULT);
 
                 // Se inserta un nuevo en la base de datos
                 $newUser = $bbdd->insertarUsuario($email, $pass1, $nombre, $apellidos);
@@ -54,7 +57,7 @@
                 }
             }
         } else {
-            echo "La contraseña no coincide";
+            $seguridad->setError("La contraseña no coincide");
             header('Location:registro.php');
         }
     }

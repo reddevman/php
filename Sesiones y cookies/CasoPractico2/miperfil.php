@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
     <title>Mi Perfil</title>
 </head>
 
@@ -15,13 +17,15 @@
         require_once 'lib/bbdd.php';
         require_once 'lib/seguridad.php';
 
-        // Objetos necesarios para la consulta y la seguridad
+        // Objetos necesarios para la consulta y la seguridad/sesión
         $bbdd = new BBDD();
         $seguridad = new Seguridad();
 
         // Limpieza de seguridad para lo introducido en el formulario
         $user = $seguridad->sanearString($_POST['usuario']);
         $pass = $seguridad->sanearString($_POST['pass']);
+
+        // Inicio del formulario
         echo "<form action='actualizar_perfil.php' method='post'>";
 
         // Comprobación rutinaria de campos de formularios
@@ -30,17 +34,16 @@
             isset($_POST['pass']) && !is_null($_POST['pass'])
         ) {
 
-            // Codificación de la contraseña tal cual fue insertada en la bbdd con anterioridad
-            // $pass_hash = password_hash($pass, PASSWORD_DEFAULT);
-            $pass_hash = $pass;
             // Buscar el usuario mediante el objeto de la base de datos ya que es un método de la misma
-            $existUser = $bbdd->buscarUsuario($user, $pass_hash);
+            $existUser = $bbdd->buscarUsuario($_POST['usuario'], $pass);
 
+            // Si la variable, es decir la búsqueda sql, no es false, se da la bienvenida
             if ($existUser != null) {
 
                 // Saludo mediante la obtención del nombre del usuario
-                echo "Bienvenido usuario " . $existUser->getNombre();
+                echo "Bienvenido usuario " . $_POST['usuario'];
 
+                // Se añade la variable user a la sesión en $_SESSION['nombre'];
                 $seguridad->addUsuario($user);
 
                 // En los campos va a mostrar los datos antiguos

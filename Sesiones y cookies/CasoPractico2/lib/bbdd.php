@@ -4,6 +4,7 @@ require_once "lib/user.php";
 
 class BBDD extends Connection
 {
+
     # CONSTRUCTOR HEREDADO NECESARIO PARA LA CONEXIÓN A LA BBDD
     function __construct()
     {
@@ -16,6 +17,8 @@ class BBDD extends Connection
 
         // Creación del usuario como un nuevo objeto
         $newUser = new User();
+        // Hash de contraseña (encriptar)
+        $pass_hash = sha1($pass);
 
         // Las propiedades del objeto toman el valor de los parámetros
         // Serán los valores introducidos por el usuario en el formulario
@@ -26,9 +29,6 @@ class BBDD extends Connection
         $newUser->setApellidos($apellidos);
         $newUser->setRol($rol);
 
-        // Hash de contraseña (encriptar)
-        // $pass_hash = password_hash($pass, PASSWORD_DEFAULT);
-        $pass_hash = $pass;
 
         // Consulta Sql de inserción
         $sql = "INSERT INTO usuarios (usuario, nombre, apellidos, email, rol, pass)
@@ -38,6 +38,8 @@ class BBDD extends Connection
         $resultado = $this->realizarConsulta($sql);
         if ($resultado) {
             $newUser->setId($this->getConexion()->insert_id);
+
+            // Se devuelve el objeto
             return $newUser;
         } else {
             return null;
@@ -60,7 +62,6 @@ class BBDD extends Connection
             '" . $apellidos . "' WHERE usuario = '" . $usuario . "'";
 
         // Se envía la consulta a la base de datos y se devuelve el objeto usuario creado
-        
         $resultado = $this->realizarConsulta($sql);
         if ($resultado) {
             return $modUser;
@@ -69,33 +70,14 @@ class BBDD extends Connection
         }
     }
 
-    # FUNCIÓN RECOGER ÚLTIMO USUARIO MODIFICADO O INSERTADO
-    public function mostrarUsuario()
-    {
-        $sql = "SELECT * from usuario ORDER BY DESC";
-        $resultado = $this->realizarConsulta($sql);
-        $arrayUsuario = [];
-
-        if ($resultado != null) {
-            while ($fila = $resultado->fetch_assoc()) {
-                $arrayUsuario[] = $fila;
-            }
-            return $arrayUsuario;
-        } else {
-            return null;
-        }
-    }
-
     # FUNCIÓN BUSCAR USUARIO
     public function buscarUsuario($usuario, $pass)
     {
+        $pass_hash = sha1($pass);
 
         // Comprobar que la contraseña no sea null
         if ($pass != null) {
 
-            // Encriptación de contraseña para poder compararla con la de la base de datos
-            // $pass_hash = password_hash($pass, PASSWORD_DEFAULT);
-            $pass_hash = $pass;
             // Consulta sql para la búsqueda del usuario
             $sql = "SELECT * FROM usuarios WHERE usuario = '" . $usuario . "' AND pass = '" . $pass_hash . "'";
         } else {
@@ -112,6 +94,7 @@ class BBDD extends Connection
             // Recorremos el resultado mientras haya datos y se asigna el valor encontrado al objeto
             for ($i = 0; $i < $resultado->num_rows; $i++) {
                 if ($i == 0) {
+                    // Se asigna a una variable el array asociativo de lo obtenido con fetch_assoc
                     $userData = $resultado->fetch_assoc();
                     $usuarioDevuelto->setId($userData['id']);
                     $usuarioDevuelto->setEmail($userData['email']);

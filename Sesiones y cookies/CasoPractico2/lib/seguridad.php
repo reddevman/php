@@ -1,8 +1,8 @@
 <?php
-
-class Seguridad extends Connection
+class Seguridad
 {
 
+    # CONSTRUCTOR BÁSICO QUE ES EL QUE CREARÁ Y MANTENDRÁ LA SESIÓN
     function __construct()
     {
         session_start();
@@ -11,7 +11,20 @@ class Seguridad extends Connection
         } else {
             $_SESSION['usuario'] = null;
         }
+
+        if (!isset($_SESSION["nombre"])) {
+            $_SESSION["nombre"] = null;
+        }
+
+        if (!isset($_SESSION["apellidos"])) {
+            $_SESSION["apellidos"] = null;
+        }
+
+        if (!isset($_SESSION["tipo_error"])) {
+            $_SESSION["tipo_error"] = null;
+        }
     }
+
 
     # FUNCIÓN PARA AÑADIR EL USUARIO A LA SESIÓN
     public function addUsuario($usuario)
@@ -27,6 +40,7 @@ class Seguridad extends Connection
         $_SESSION["nombre"] = null;
         $_SESSION["apellidos"] = null;
         $_SESSION["tipo_error"] = null;
+        session_destroy();
     }
 
     # FUNCIÓN DE SEGURIDAD PARA SANEAR STRING DEL FORMULARIO
@@ -39,10 +53,16 @@ class Seguridad extends Connection
     }
 
     # FUNCIÓN DE SEGURIDAD PARA SANEAR SENTENCIA SQL
-    function sanearMySQL($connection, $string)
+    // function sanearMySQL($connection, $string)
+    // {
+    //     $string = $this->getConexion()->real_escape_string($string);
+    //     $string = $this->sanearString($string);
+    //     return $string;
+    // }
+
+    # FUNCIÓN PARA ESTABLECER UN MENSAJE DE ERROR
+    public function setError($tipo_error)
     {
-        $string = $this->getConexion()->real_escape_string($string);
-        $string = $this->sanearString($string);
-        return $string;
+        $_SESSION["tipo_error"] = $tipo_error;
     }
 }

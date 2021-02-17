@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
     <title>Actualizar perfil</title>
 </head>
 
@@ -29,7 +31,7 @@
         // Nuevo objeto que devuelve la función de actualizar
         $updatedUser = $bbdd->actualizarUsuario($email, $nombre, $apellidos);
 
-        // Si el objeto no es null, es decir que contiene datos...
+        // Si el contenido del objeto no es null, es decir que contiene datos...
         if ($updatedUser != null) {
             echo "Se han actualizado los datos del usuario " . $updatedUser->getUsuario() . " correctamente.";
             echo "Pulsa en <a href='index.php'>INICIO</a> para volver a la página principal de login.";
@@ -38,7 +40,7 @@
             echo "Pulsar en el <a href='miperfil.php'>ENLACE</a> para volver a la página de Mi Perfil";
         }
 
-        // Borra los datos de la sesión una vez ya se han usado, NO DESTRUYE LA SESIÓN
+        // Borra los datos de la sesión una vez ya se han usado y DESTRUYE la sesión
         $seguridad->borrarDatos();
     } else {
         header('Location:index.php');
