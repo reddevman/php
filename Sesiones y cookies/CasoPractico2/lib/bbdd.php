@@ -27,7 +27,8 @@ class BBDD extends Connection
         $newUser->setRol($rol);
 
         // Hash de contraseña (encriptar)
-        $pass_hash = password_hash($pass, PASSWORD_DEFAULT);
+        // $pass_hash = password_hash($pass, PASSWORD_DEFAULT);
+        $pass_hash = $pass;
 
         // Consulta Sql de inserción
         $sql = "INSERT INTO usuarios (usuario, nombre, apellidos, email, rol, pass)
@@ -59,7 +60,9 @@ class BBDD extends Connection
             '" . $apellidos . "' WHERE usuario = '" . $usuario . "'";
 
         // Se envía la consulta a la base de datos y se devuelve el objeto usuario creado
-        if ($this->conexion->query($sql)) {
+        
+        $resultado = $this->realizarConsulta($sql);
+        if ($resultado) {
             return $modUser;
         } else {
             return null;
@@ -91,7 +94,8 @@ class BBDD extends Connection
         if ($pass != null) {
 
             // Encriptación de contraseña para poder compararla con la de la base de datos
-            $pass_hash = password_hash($pass, PASSWORD_DEFAULT);
+            // $pass_hash = password_hash($pass, PASSWORD_DEFAULT);
+            $pass_hash = $pass;
             // Consulta sql para la búsqueda del usuario
             $sql = "SELECT * FROM usuarios WHERE usuario = '" . $usuario . "' AND pass = '" . $pass_hash . "'";
         } else {

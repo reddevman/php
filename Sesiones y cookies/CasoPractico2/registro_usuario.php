@@ -42,7 +42,7 @@
                 header("Location:registro.php");
             } else {
                 // Codificamos la contraseña
-                $pass1 = password_hash($pass1, PASSWORD_DEFAULT);
+                // $pass1 = password_hash($pass1, PASSWORD_DEFAULT);
 
                 // Se inserta un nuevo en la base de datos
                 $newUser = $bbdd->insertarUsuario($email, $pass1, $nombre, $apellidos);
