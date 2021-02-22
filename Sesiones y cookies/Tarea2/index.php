@@ -42,6 +42,7 @@ session_start();
 
             if (isset($_POST['destroy'])) {
                 echo "Sesión cerrada.";
+                $_SESSION = [];
                 session_destroy();
             }
             ?>
