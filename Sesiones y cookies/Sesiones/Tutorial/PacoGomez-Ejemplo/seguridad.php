@@ -43,7 +43,14 @@
                 // Compara el password de la base de datos con el encriptado del POST del formulario
                 if (password_verify($_POST['pass1'], $usuarioReg['pass'])) {
                     // echo "<h2>Usuario encontrado</h2>";
-                    $seguridad->setUsuario($usuarioReg['usuario']);
+
+                    // Condicional que depende del marcado del checkbox de RECUERDAME
+                    if (isset($_POST['remember'])) {
+                        // Crea la sesion y la cookie usuario y pone en true la variable remember
+                        $seguridad->setUsuario($usuarioReg['usuario'], true);
+                    } else {
+                        $seguridad->setUsuario($usuarioReg['usuario']);
+                    }
                     header('Location: protegida.php');
                 } else {
                     echo "<h2>Las contraseñas no coinciden</h2>";                    
