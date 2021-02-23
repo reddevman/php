@@ -14,7 +14,12 @@
         <input type="text" name="usuario" placeholder="Tu usuario...">
         
         <label for="pass1">Contraseña</label>
-        <input type="password" name="pass1" placeholder="Contraseña..."> 
+        <input type="password" name="pass1" placeholder="Contraseña...">
+
+        <input type="checkbox" name="remember"
+            <?php if(isset($_COOKIE['usuario_login'])){ 
+            ?> checked <?php } ?>>
+        <label for="recordarme">recordarme</label>
         
         <input type="hidden" name="accion" value="login">
 
