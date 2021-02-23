@@ -18,7 +18,7 @@ class BBDD extends Connection
         // Creación del usuario como un nuevo objeto
         $newUser = new User();
         // Hash de contraseña (encriptar)
-        $pass_hash = sha1($pass);
+        $pass_hash = password_hash($pass, PASSWORD_DEFAULT);
 
         // Las propiedades del objeto toman el valor de los parámetros
         // Serán los valores introducidos por el usuario en el formulario
@@ -72,19 +72,10 @@ class BBDD extends Connection
     }
 
     # FUNCIÓN BUSCAR USUARIO
-    public function buscarUsuario($usuario, $pass)
+    public function buscarUsuario($usuario)
     {
-        $pass_hash = sha1($pass);
-
-        // Comprobar que la contraseña no sea null
-        if ($pass != null) {
-
-            // Consulta sql para la búsqueda del usuario
-            $sql = "SELECT * FROM usuarios WHERE usuario = '" . $usuario . "' AND pass = '" . $pass_hash . "'";
-        } else {
-            // Consulta que se hará si sólo se da el nombre del usuario/email
-            $sql = "SELECT * FROM usuarios WHERE usuario = '" . $usuario . "'";
-        }
+        // Consulta por usuario
+        $sql = "SELECT * FROM usuarios WHERE usuario = '" . $usuario . "'";
 
         // Construcción de la consulta a la variable resultado
         $resultado = $this->realizarConsulta($sql);
@@ -101,6 +92,8 @@ class BBDD extends Connection
                     $usuarioDevuelto->setEmail($userData['email']);
                     $usuarioDevuelto->setNombre($userData['nombre']);
                     $usuarioDevuelto->setApellidos($userData['apellidos']);
+                    $usuarioDevuelto->setUsuario($userData['usuario']);
+                    $usuarioDevuelto->setPass($userData['pass']);
                 }
             }
             // Devolución del objeto ya rellenado con los datos necesarios

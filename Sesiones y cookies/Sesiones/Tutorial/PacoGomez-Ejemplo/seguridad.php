@@ -41,7 +41,7 @@
             if ($usuarioReg!=null) {
 
                 // Compara el password de la base de datos con el encriptado del POST del formulario
-                if ($usuarioReg['pass'] === sha1($_POST['pass1'])) {
+                if (password_verify($_POST['pass1'], $usuarioReg['pass'])) {
                     // echo "<h2>Usuario encontrado</h2>";
                     $seguridad->setUsuario($usuarioReg['usuario']);
                     header('Location: protegida.php');

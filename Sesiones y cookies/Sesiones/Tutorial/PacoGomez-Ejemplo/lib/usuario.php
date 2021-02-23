@@ -16,7 +16,7 @@ class Usuario extends db
     {
         // Construcción de la consulta, no es imprescindible declararlo antes
         $sql = "INSERT INTO usuario (id, usuario, nombre, apellidos, edad, rol, pass)
-            VALUES (NULL, '". $usuario ."', '". $nombre ."', '". $apellidos ."', '". $edad ."','". $rol ."','". sha1($pass) ."')";
+            VALUES (NULL, '". $usuario ."', '". $nombre ."', '". $apellidos ."', '". $edad ."','". $rol ."','". password_hash($pass, PASSWORD_DEFAULT) ."')";
 
         // Realizar consulta
         $resultado = $this->realizarConsulta($sql);

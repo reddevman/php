@@ -41,29 +41,36 @@
             // Si la variable, es decir la búsqueda sql, no es false, se da la bienvenida
             if ($existUser != null) {
 
-                // Saludo mediante la obtención del nombre del usuario
-                echo "Bienvenido usuario " . $_POST['usuario'];
+                // Comprobación de la contraseña
+                if (password_verify($pass, $existUser->getPass())) {
+                    // Saludo mediante la obtención del nombre del usuario
+                    echo "Bienvenido usuario " . $existUser->getUsuario();
 
-                // Se añade la variable user a la sesión en $_SESSION['nombre'];
-                $seguridad->addUsuario($user);
+                    // Se añade la variable user a la sesión en $_SESSION['nombre'];
+                    $seguridad->addUsuario($user);
 
-                // En los campos va a mostrar los datos antiguos
-                echo "<label for='email'>e-mail</label>";
-                echo "<input type='text' name='email' value='" . $existUser->getEmail() . "' readonly>";
-                echo "<label for='nombre'>Nombre</label>";
-                echo "<input type='text' name='nombre' value='" . $existUser->getNombre() . "' required>";
-                echo "<label for='apellidos'>Apellidos</label>";
-                echo "<input type='text' name='apellidos' value='" . $existUser->getApellidos() . "' required>";
-                echo "<label for=\"rol\">ROL</label><br>";
-                echo "<select name=\"rol\">";
-                if ($rol != null ){
-                    foreach ($rol as $userRol) {
-                        echo "<option value=" . $userRol['tipo']. ">" . $userRol['tipo'] . "</option>";
+                    // En los campos va a mostrar los datos antiguos
+                    echo "<label for='email'>e-mail</label>";
+                    echo "<input type='text' name='email' value='" . $existUser->getEmail() . "' readonly>";
+                    echo "<label for='nombre'>Nombre</label>";
+                    echo "<input type='text' name='nombre' value='" . $existUser->getNombre() . "' required>";
+                    echo "<label for='apellidos'>Apellidos</label>";
+                    echo "<input type='text' name='apellidos' value='" . $existUser->getApellidos() . "' required>";
+                    echo "<label for=\"rol\">ROL</label><br>";
+                    echo "<select name=\"rol\">";
+                    if ($rol != null) {
+                        foreach ($rol as $userRol) {
+                            echo "<option value=" . $userRol['tipo'] . ">" . $userRol['tipo'] . "</option>";
+                        }
+                        echo "</select><br>";
                     }
-                    echo "</select><br>";
+                    
+                    echo "<input type='submit' value='ACTUALIZAR'>";
+                    echo "</form>";
+                } else {
+                    echo "Las contraseñas no coinciden";
+                    echo "<a href='index.php'>Pulsar para volver a la pantalla de login</a>";
                 }
-                echo "<input type='submit' value='ACTUALIZAR'>";
-                echo "</form>";
             } else {
                 echo "El usuario no existe en la base de datos";
                 echo "<a href='index.php'>Pulsar para volver a la pantalla de login</a>";

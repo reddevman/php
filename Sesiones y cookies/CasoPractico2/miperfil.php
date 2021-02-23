@@ -23,7 +23,7 @@
 
         // Limpieza de seguridad para lo introducido en el formulario
         $user = $seguridad->sanearString($_POST['usuario']);
-        $pass = $seguridad->sanearString($_POST['pass']);
+        $pass = $_POST['pass'];
 
         // Inicio del formulario
         echo "<form action='actualizar_perfil.php' method='post'>";
@@ -35,26 +35,32 @@
         ) {
 
             // Buscar el usuario mediante el objeto de la base de datos ya que es un método de la misma
-            $existUser = $bbdd->buscarUsuario($_POST['usuario'], $pass);
+            $existUser = $bbdd->buscarUsuario($_POST['usuario']);
 
-            // Si la variable, es decir la búsqueda sql, no es false, se da la bienvenida
+            // Si se devuelven datos en la consulta correctamente y la variable contiene datos de usuario
             if ($existUser != null) {
 
-                // Saludo mediante la obtención del nombre del usuario
-                echo "Bienvenido usuario " . $_POST['usuario'];
+                // Comprobación de la contraseña
+                if (password_verify($pass, $existUser->getPass())) {
+                    // Saludo mediante la obtención del nombre del usuario
+                    echo "Bienvenido usuario " . $existUser->getUsuario();
 
-                // Se añade la variable user a la sesión en $_SESSION['nombre'];
-                $seguridad->addUsuario($user);
+                    // Se añade la variable user a la sesión en $_SESSION['nombre'];
+                    $seguridad->addUsuario($user);
 
-                // En los campos va a mostrar los datos antiguos
-                echo "<label for='email'>e-mail</label>";
-                echo "<input type='text' name='email' value='" . $existUser->getEmail() . "' readonly>";
-                echo "<label for='nombre'>Nombre</label>";
-                echo "<input type='text' name='nombre' value='" . $existUser->getNombre() . "' required>";
-                echo "<label for='apellidos'>Apellidos</label>";
-                echo "<input type='text' name='apellidos' value='" . $existUser->getApellidos() . "' required>";
-                echo "<input type='submit' value='ACTUALIZAR'>";
-                echo "</form>";
+                    // En los campos va a mostrar los datos antiguos
+                    echo "<label for='email'>e-mail</label>";
+                    echo "<input type='text' name='email' value='" . $existUser->getEmail() . "' readonly>";
+                    echo "<label for='nombre'>Nombre</label>";
+                    echo "<input type='text' name='nombre' value='" . $existUser->getNombre() . "' required>";
+                    echo "<label for='apellidos'>Apellidos</label>";
+                    echo "<input type='text' name='apellidos' value='" . $existUser->getApellidos() . "' required>";
+                    echo "<input type='submit' value='ACTUALIZAR'>";
+                    echo "</form>";
+                } else {
+                    echo "Las contraseñas no coinciden";
+                    echo "<a href='index.php'>Pulsar para volver a la pantalla de login</a>";
+                }
             } else {
                 echo "El usuario no existe en la base de datos";
                 echo "<a href='index.php'>Pulsar para volver a la pantalla de login</a>";
