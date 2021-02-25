@@ -7,7 +7,7 @@ $request_method = $_SERVER['REQUEST_METHOD'];
 
 switch ($request_method) {
 
-    # GET METHOD
+        # GET METHOD
     case 'GET':
         /**
          * 1º Comprobación de los GET recibidos por el formulario.
@@ -19,22 +19,28 @@ switch ($request_method) {
         if (isset($_GET['nombreJugador']) && !is_null($_GET['nombreJugador'])) {
             $jugador = new clubbasket();
             $resultado = $jugador->buscarJugador($_GET['nombreJugador']);
-            $datos_decode = json_decode($resultado, true);
+            
+            if ($resultado != null) {
 
-            // Uso de heredoc
-            echo <<< _END
+                $datos_decode = json_decode($resultado, true);
+
+                // Uso de heredoc
+                echo <<< _END
 <h1>Datos del Jugador:</h1>
 <b>Nombre:</b> {$datos_decode['nombreJugador']}<br>
 <b>Posición:</b> {$datos_decode['posicion']}<br>
 <b>Número:</b> {$datos_decode['numero']}<br>
 <b>Edad:</b> {$datos_decode['edad']}<br>
 _END;
+            } else {
+                echo "Error en la búsqueda del jugador";
+            }
         } else {
             echo "<p>Error, no se han especificado los parámetros</p>";
         }
         break;
 
-    # PUT METHOD
+        # PUT METHOD
     case 'PUT':
         /**
          * 1º Comprobación de los GET recibidos por el formulario.
