@@ -1,0 +1,90 @@
+{
+	"info": {
+		"_postman_id": "2193f48c-4584-49fa-8811-7bad8902f921",
+		"name": "jugadores",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "buscar jugador",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "http://localhost/php/API/Tarea1/api.php?nombreJugador=",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"php",
+						"API",
+						"Tarea1",
+						"api.php"
+					],
+					"query": [
+						{
+							"key": "nombreJugador",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "actualizar jugador",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "http://localhost/php/API/Tarea1/api.php?id=&nombreJugador=&posicion&numero&edad",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"php",
+						"API",
+						"Tarea1",
+						"api.php"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": ""
+						},
+						{
+							"key": "nombreJugador",
+							"value": ""
+						},
+						{
+							"key": "posicion",
+							"value": null
+						},
+						{
+							"key": "numero",
+							"value": null
+						},
+						{
+							"key": "edad",
+							"value": null
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

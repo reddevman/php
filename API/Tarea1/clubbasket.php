@@ -39,15 +39,17 @@
             /**
              * 1º Se recibe de una aplicación, el json como parámetro
              * 2º Se decodifica la información del json y se recoge en una variable
-             * 2º (b) Como queremos almacenarlo en un array asociativo, se debe poner el parámetro true en el decode
+             * 2º (b) Como queremos almacenarlo en un array asociativo, se debe poner el parámetro TRUE en el decode
              * 3º Se crea la sentencia sql y se realiza la consulta mediante el método de db
+             * 3º (b) Se hace el update donde el id es el que se indique en la parte de la API
              * 4º Se devuelve el resultado si la consulta no es null
              */
             $arrayDatosJugador = json_decode($jsonJugador, true);
             $sql = "UPDATE jugador SET nombreJugador = '" . $arrayDatosJugador['nombreJugador'] . "',
                                        posicion = '" . $arrayDatosJugador['posicion'] . "',
                                        numero = " . $arrayDatosJugador['numero'] . ",
-                                       edad = " . $arrayDatosJugador['edad'] . "";
+                                       edad = " . $arrayDatosJugador['edad'] . " WHERE
+                                       id = " . $arrayDatosJugador['id'] . "";
 
             $resultado = $this->realizarConsulta($sql);
             if ($resultado != null) {

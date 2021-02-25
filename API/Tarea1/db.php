@@ -1,6 +1,6 @@
 <?php
 
-    class Connection {
+    class db {
         private $host = "localhost";
         private $user = "root";
         private $pass = "";
