@@ -14,10 +14,10 @@ class nba extends db
     ### FUNCIONES CRUD ###
 
     # FUNCIÓN BUSCAR UN EQUIPO - GET
-    public function buscarJugador($equipo)
+    public function buscarEquipo($equipo)
     {
 
-        $sql = "SELECT * FROM equipos WHERE nombre = '" . $equipo . "'";
+        $sql = "SELECT * FROM equipos WHERE Nombre = '" . $equipo . "'";
 
         $resultado = $this->realizarConsulta($sql);
         if ($resultado != null) {
@@ -30,10 +30,12 @@ class nba extends db
     }
 
     # FUNCIÓN INSERTAR - POST
-    function insertarEquipo($nombre, $ciudad, $conferencia, $division)
+    function insertarEquipo($jsonEquipo)
     {
+        $arrayDatosEquipo = json_decode($jsonEquipo, true);
         $sql = "INSERT INTO equipos (Nombre,Ciudad,Conferencia,Division) VALUES
-                    ('" . $nombre . "','" . $ciudad . "','" . $conferencia . "','" . $division . "')";
+                    ('" . $arrayDatosEquipo['Nombre'] . "','" . $arrayDatosEquipo['Ciudad'] . "',
+                     '" . $arrayDatosEquipo['Conferencia'] . "','" . $arrayDatosEquipo['Divi    sion'] . "')";
         $resultado = $this->conexion->query($sql);
         if ($resultado != null) {
             return $resultado;
@@ -42,16 +44,15 @@ class nba extends db
         }
     }
 
-    # FUNCIÓN ACTUALIZAR DATOS DE UN JUGADOR - PUT
-    public function actualizarJugador($jsonJugador)
+    # FUNCIÓN ACTUALIZAR DATOS DE UN EQUIPO - PUT
+    public function actualizarEquipo($jsonEquipo)
     {
-
-        $arrayDatosJugador = json_decode($jsonJugador, true);
-        $sql = "UPDATE jugador SET nombreJugador = '" . $arrayDatosJugador['nombreJugador'] . "',
-                                       posicion = '" . $arrayDatosJugador['posicion'] . "',
-                                       numero = " . $arrayDatosJugador['numero'] . ",
-                                       edad = " . $arrayDatosJugador['edad'] . " WHERE
-                                       id = " . $arrayDatosJugador['id'] . "";
+        $arrayDatosEquipo = json_decode($jsonEquipo, true);
+        $sql = "UPDATE equipos SET Nombre = '" . $arrayDatosEquipo['Nombre'] . "',
+                                       Ciudad = '" . $arrayDatosEquipo['Ciudad'] . "',
+                                       Conferencia = '" . $arrayDatosEquipo['Conferencia'] . "',
+                                       Division = '" . $arrayDatosEquipo['Division'] . "' WHERE
+                                       Nombre = '" . $arrayDatosEquipo['Nombre'] . "'";
 
         $resultado = $this->realizarConsulta($sql);
         if ($resultado != null) {
@@ -61,11 +62,11 @@ class nba extends db
         }
     }
 
-    # FUNCIÓN BORRAR DATOS DE UN JUGADOR - DELETE
-    public function borrarJugador($jsonJugador)
+    # FUNCIÓN BORRAR UN EQUIPO - DELETE
+    public function borrarEquipo($jsonEquipo)
     {
-        $arrayDatosJugador = json_decode($jsonJugador, true);
-        $sql = "DELETE FROM jugador WHERE id = " . $arrayDatosJugador['id'] . "";
+        $arrayDatosEquipo = json_decode($jsonEquipo, true);
+        $sql = "DELETE FROM equipos WHERE Nombre = '" . $arrayDatosEquipo['Nombre'] . "'";
         $resultado = $this->realizarConsulta($sql);
         if ($resultado != null) {
             return $resultado;
