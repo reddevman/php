@@ -15,11 +15,12 @@
     if (!isset($_SESSION['numVisitas'])) {
         // Se le da un valor si no existe
         $_SESSION['numVisitas'] = 0;
-        print_r($_SESSION);
+        $_SESSION['usuario'] = 'Paco';
+        var_dump($_SESSION);
     } else {
         // Se incrementa en 1 si ya existe
         $_SESSION['numVisitas']++;
-        print_r($_SESSION);
+        var_dump($_SESSION);
     }
     ?>
 </body>

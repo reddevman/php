@@ -79,7 +79,7 @@
             header('Location:index.php');
         }
         ?>
-
+    <footer>&copy; ALEJANDRO MÁRQUEZ ARAGONÉS</footer>
     </div>
 </body>
 

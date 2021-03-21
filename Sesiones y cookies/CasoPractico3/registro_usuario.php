@@ -64,6 +64,7 @@
             echo "</div>";
     }
     ?>
+    <footer>&copy; ALEJANDRO MÁRQUEZ ARAGONÉS</footer>
 </body>
 
 </html>

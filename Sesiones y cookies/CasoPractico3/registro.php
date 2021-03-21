@@ -62,6 +62,7 @@ $seguridad = new Seguridad();
             <input type="submit" value="REGISTRARSE">
         </form>
     </div>
+    <footer>&copy; ALEJANDRO MÁRQUEZ ARAGONÉS</footer>
 </body>
 
 </html>

@@ -21,6 +21,7 @@
         </form>
         <a href="registro.php">Registrarse</a>
     </div>
+    <footer>&copy; ALEJANDRO MÁRQUEZ ARAGONÉS</footer>
 </body>
 
 </html>

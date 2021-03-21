@@ -17,8 +17,8 @@
             <form action="./proceso.php" method="post">
                 <fieldset>
                     <legend>BOLÍGRAFOS</legend>
-                    <label for="lapices">CANTIDAD</label>
-                    <input type="number" name="boligrafos" min="0">
+                    <label for="boligrafos">CANTIDAD</label>
+                    <input type="number" name="boligrafos" min="0" value="0" required>
                     <input type="submit" value="AÑADIR">
                 </fieldset>
             </form>

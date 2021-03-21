@@ -17,8 +17,8 @@
             <form action="./proceso.php" method="post">
                 <fieldset>
                     <legend>PAPELES</legend>
-                    <label for="lapices">CANTIDAD</label>
-                    <input type="number" name="papeles" min="0">
+                    <label for="papeles">CANTIDAD</label>
+                    <input type="number" name="papeles" min="0" value="0" required>
                     <input type="submit" value="AÑADIR">
                 </fieldset>
             </form>

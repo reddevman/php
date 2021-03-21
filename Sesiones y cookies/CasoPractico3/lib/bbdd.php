@@ -106,7 +106,7 @@ class BBDD extends Connection
     # FUNCIÓN BUSCAR ROLES
     public function recogerRoles()
     {
-        $sql = "SELECT tipo FROM rol";
+        $sql = "SELECT tipo FROM roles";
         $resultado = $this->realizarConsulta($sql);
         $arrayEquipo = [];
 
