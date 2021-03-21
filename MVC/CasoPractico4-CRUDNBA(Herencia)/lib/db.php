@@ -16,7 +16,7 @@
             $this->conexion = new mysqli($this->host, $this->user, $this->pass, $this->db_name);
 
             if ($this->conexion->connect_errno) {
-                $this->error =  true;
+                $this->error = true;
             }
         }
 
@@ -35,7 +35,7 @@
             return $this->error_msj;
         }
 
-        function realizarConsulta($consulta)
+        public function realizarConsulta($consulta)
         {
             if (!$this->hayError()) {
                 $resultado = $this->conexion->query($consulta);

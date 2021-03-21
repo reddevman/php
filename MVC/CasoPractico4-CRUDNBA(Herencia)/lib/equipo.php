@@ -33,6 +33,7 @@ class Equipo extends db
         if ($this->hayError() == false) {
 
             $sql = "DELETE FROM equipos WHERE Nombre = '" . $nombre . "'";
+            $this->conexion->query($sql);
             if (!$this->conexion->query($sql)) {
                 echo "Falló el borrado del equipo: (" . $this->conexion->connect_errno . ")" . $this->conexion->error;
                 return false;
