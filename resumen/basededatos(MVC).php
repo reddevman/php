@@ -200,7 +200,7 @@ class Nba extends db
 /* PASOS CREACIÓN DE FILTRADO
 
 - Creación de instancias del objeto principal que contiene las consultas
-- Recogia de datos mediante $_POST y substring para recoger el campo adecuadamente
+- Recogida de datos mediante $_POST y substring para recoger el campo adecuadamente
 - Variable que recogerá el método que contendrá la sentencia sql con los resultados
 - Comprobación mediante isset y empty
 - Creación de la tabla dentro de un if que comprueba si los datos son null
