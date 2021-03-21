@@ -23,7 +23,6 @@
     
     if (isset($nombre, $procedencia, $altura, $peso, $posicion, $equipo) && !empty($nombre) && !empty($procedencia)
     && !empty($altura) && !empty($peso) && !empty($posicion) && !empty($equipo)) {
-        $bbdd = new Jugador();
         $bbdd->actualizarJugador($nombre, $procedencia, $altura, $peso, $posicion, $equipo);
     } else {
         echo "No se pudo hacer la consulta de la actualización";

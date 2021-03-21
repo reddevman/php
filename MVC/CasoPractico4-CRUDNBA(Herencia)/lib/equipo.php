@@ -15,7 +15,7 @@ class Equipo extends db
     {
         $sql = "INSERT INTO equipos (Nombre,Ciudad,Conferencia,Division) VALUES
                 ('" . $nombre . "','" . $ciudad . "','" . $conferencia . "','" . $division . "')";
-        $this->conexion->query($sql);
+        $this->realizarConsulta($sql);
     }
 
     
@@ -24,7 +24,7 @@ class Equipo extends db
     {
         $sql = "UPDATE equipos SET Ciudad = '" . $ciudad . "', Conferencia = '" . $conferencia . "', Division = '" . $division . "' 
                     WHERE Nombre = '" . $nombre . "'";
-        $this->conexion->query($sql);
+        $this->realizarConsulta($sql);
     }
 
     # FUNCION BORRAR
@@ -33,9 +33,9 @@ class Equipo extends db
         if ($this->hayError() == false) {
 
             $sql = "DELETE FROM equipos WHERE Nombre = '" . $nombre . "'";
-            $this->conexion->query($sql);
-            if (!$this->conexion->query($sql)) {
-                echo "Falló el borrado del equipo: (" . $this->conexion->connect_errno . ")" . $this->conexion->error;
+            $this->realizarConsulta($sql);
+            if (!$this->realizarConsulta($sql)) {
+                echo "Falló el borrado del equipo: (" . $this->getConexion()->connect_errno . ")" . $this->getConexion()->error;
                 return false;
             }
             return true;

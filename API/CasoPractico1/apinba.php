@@ -65,7 +65,7 @@ _END;
             $jugador->insertarEquipo($datos_encode);
 
             echo "<h1>Se han insertado los datos del equipo " . $_POST['Nombre'] . ".</h1>";
-            $resultado = $jugador->buscarEquipo($_GET['Nombre']);
+            $resultado = $jugador->buscarEquipo($_POST['Nombre']);
             $datos_decode = json_decode($resultado, true);
 
                 // Uso de heredoc

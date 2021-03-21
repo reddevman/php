@@ -35,8 +35,8 @@ class nba extends db
         $arrayDatosEquipo = json_decode($jsonEquipo, true);
         $sql = "INSERT INTO equipos (Nombre,Ciudad,Conferencia,Division) VALUES
                     ('" . $arrayDatosEquipo['Nombre'] . "','" . $arrayDatosEquipo['Ciudad'] . "',
-                     '" . $arrayDatosEquipo['Conferencia'] . "','" . $arrayDatosEquipo['Divi    sion'] . "')";
-        $resultado = $this->conexion->query($sql);
+                     '" . $arrayDatosEquipo['Conferencia'] . "','" . $arrayDatosEquipo['Division'] . "')";
+        $resultado = $this->realizarConsulta($sql);
         if ($resultado != null) {
             return $resultado;
         } else {

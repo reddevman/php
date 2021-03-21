@@ -13,22 +13,23 @@ class Jugador extends db
     # FUNCIÓN INSERTAR
     function insertarJugador($nombre, $procedencia, $altura, $peso, $posicion, $equipo)
     {
-        $codigo = (int) $this->conexion->query("SELECT MAX(codigo) FROM jugadores");
+        //$codigo = (int) $this->getConexion()->query("SELECT MAX(codigo) FROM jugadores");
+        $codigo = (int) $this->realizarConsulta("SELECT MAX(codigo) FROM jugadores");
         $codigoFinal = $codigo + 1;
         $sql = "INSERT INTO jugadores (codigo, Nombre,Procedencia,Altura,Peso,Posicion,Nombre_equipo) VALUES
                 ($codigoFinal, '" . $nombre . "','" . $procedencia . "','" . $altura . "','" . $peso . "','" . $posicion . "','" . $equipo . "')";
-        $this->conexion->query($sql);
+        $this->realizarConsulta($sql);
     }
 
     
     # FUNCIÓN ACTUALIZAR
     function actualizarJugador($nombre, $procedencia, $altura, $peso, $posicion, $equipo)
     {
-        $codigo = $this->conexion->query("SELECT MAX(codigo) FROM jugadores WHERE nombre = '" . $nombre . "'");
+        $codigo = $this->realizarConsulta("SELECT MAX(codigo) FROM jugadores WHERE nombre = '" . $nombre . "'");
 
         $sql = "UPDATE equipos SET codigo = '" . $codigo . "', Procedencia = '" . $procedencia . "', Altura = '" . $altura . "', Peso = '" . $peso . "',
                 Posicion = '" . $posicion . "', Nombre_equipo = '" . $equipo . "' WHERE Nombre = '" . $nombre . "'";
-        $this->conexion->query($sql);
+        $this->realizarConsulta($sql);
     }
 
     # FUNCION BORRAR
@@ -37,8 +38,9 @@ class Jugador extends db
         if ($this->hayError() == false) {
 
             $sql = "DELETE FROM jugadores WHERE Nombre = '" . $nombre . "'";
-            if (!$this->conexion->query($sql)) {
-                echo "Falló el borrado del equipo: (" . $this->conexion->connect_errno . ")" . $this->conexion->error;
+            $this->realizarConsulta($sql);
+            if (!$this->realizarConsulta($sql)) {
+                echo "Falló el borrado del equipo: (" . $this->getConexion()->connect_errno . ")" . $this->getConexion()->error;
                 return false;
             }
             return true;

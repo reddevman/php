@@ -21,7 +21,6 @@
     
     if (isset($nombre, $ciudad, $conferencia, $division) && !empty($nombre) && !empty($ciudad)
         && !empty($conferencia) && !empty($division)) {
-        $bbdd = new Nba();
         $bbdd->actualizarEquipo($nombre, $ciudad, $conferencia, $division);
     } else {
         echo "No se pudo hacer la consulta de la actualización";
